@@ -1753,6 +1753,12 @@ pre .javascript .function {
   -ms-transform: rotate(360deg);
   -transform: rotate(360deg);
 }
+.site-author-name {
+  margin: 0;
+  text-align: center;
+  color: #222;
+  font-weight: 600;
+}
 .site-description {
   margin-top: 0;
   text-align: center;
@@ -1827,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e9ffc8;
+  background: #a8ad4a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2994,4 +3000,7 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("/images/tushou.jpg");
 }
