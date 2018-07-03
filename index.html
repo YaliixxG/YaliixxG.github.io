@@ -365,28 +365,10 @@
         
           <p>定义全局变量<br>原理：<br>设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。</p>
 <p>全局变量模块文件：<br>Global.vue文件：</p>
-<script>
-const serverSrc='www.baidu.com';
-const token='12345678';
-const hasEnter=false;
-const userSite="中国钓鱼岛";
-  export default
-  {
-    userSite,//用户地址
-    token,//用户token身份
-    serverSrc,//服务器地址
-    hasEnter,//用户登录状态
-  }
-</script>
-
+<p><img src="/2018/07/03/global/vue1.jpg" alt="vue1"></p>
 <p>使用方式1：<br>在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。</p>
 <p>在text1.vue组件中使用：</p>
-<template><br>    <div></div><br></template>
-
-<p><script><br>import global_ from ‘../../components/Global’//引用模块进来<br>export default {<br> name: ‘text’,<br>data () {<br>    return {<br>         token:global_.token,//将全局变量赋值到data里面，也可以直接使用global_.token<br>        }<br>    }<br>}<br></script></p>
-<style lang="scss" scoped>
-
-</style>
+<p><img src="/2018/07/03/global/vue2.jpg" alt="vue2"><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/03/global/#more" rel="contents">
