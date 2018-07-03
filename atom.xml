@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-06-20T08:15:04.021Z</updated>
+  <updated>2018-07-03T02:37:10.090Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sunny</title>
+    <link href="http://yaliixxg.github.io/2018/07/03/sunny/"/>
+    <id>http://yaliixxg.github.io/2018/07/03/sunny/</id>
+    <published>2018-07-03T02:30:23.000Z</published>
+    <updated>2018-07-03T02:37:10.090Z</updated>
+    
+    <content type="html"><![CDATA[<p>从前从前有个人爱你很久<br>但偏偏，雨渐渐，把距离吹的好远</p><p>刮风这天<br>我试过握着你手</p><p>还要多久，我才能在你身边<br>等到放晴的那天<br>也许我会比较好一点</p><p>为你翘课的那一天<br>花落的那一天<br>教室的那一间<br>我怎么看不见<br>消失的下雨天<br>我好想再淋一遍</p><p>12岁的晴天<br>但故事的最后，你好像还是说了拜</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;从前从前有个人爱你很久&lt;br&gt;但偏偏，雨渐渐，把距离吹的好远&lt;/p&gt;
+&lt;p&gt;刮风这天&lt;br&gt;我试过握着你手&lt;/p&gt;
+&lt;p&gt;还要多久，我才能在你身边&lt;br&gt;等到放晴的那天&lt;br&gt;也许我会比较好一点&lt;/p&gt;
+&lt;p&gt;为你翘课的那一天&lt;br&gt;花落的那一天&lt;br&gt;教室的那一间&lt;br&gt;
+      
+    
+    </summary>
+    
+      <category term="音乐" scheme="http://yaliixxg.github.io/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+      <category term="晴天 周杰伦" scheme="http://yaliixxg.github.io/tags/%E6%99%B4%E5%A4%A9-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>跨域请求传递cookie问题</title>
