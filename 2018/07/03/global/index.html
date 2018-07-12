@@ -81,22 +81,21 @@
 
 
 
-<meta name="description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：   使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.v">
+<meta name="description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：  使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.vu">
 <meta name="keywords" content="vue 全局变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在vue项目中 如何定义全局变量 全局函数">
 <meta property="og:url" content="http://yaliixxg.github.io/2018/07/03/global/index.html">
 <meta property="og:site_name" content="挖坑埋神经病">
-<meta property="og:description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：   使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.v">
+<meta property="og:description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：  使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.vu">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/03/global/vue1.png">
-<meta property="og:image" content="http://yaliixxg.github.io/2018/07/03/global/HTTPP/http2.png">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/03/global/vue2.png">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/03/global/vue3.png">
-<meta property="og:updated_time" content="2018-07-12T03:46:46.263Z">
+<meta property="og:updated_time" content="2018-07-12T03:48:17.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在vue项目中 如何定义全局变量 全局函数">
-<meta name="twitter:description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：   使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.v">
+<meta name="twitter:description" content="定义全局变量原理：设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。 全局变量模块文件：Global.vue文件：  使用方式1：在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。 在text1.vu">
 <meta name="twitter:image" content="http://yaliixxg.github.io/2018/07/03/global/vue1.png">
 
 
@@ -371,7 +370,7 @@
       
         <p>定义全局变量<br>原理：<br>设置一个专用的的全局变量模块文件，模块里面定义一些变量初始状态，用export default 暴露出去，在main.js里面使用Vue.prototype挂载到vue实例上面或者在其它地方需要使用时，引入该模块便可。</p>
 <p>全局变量模块文件：<br>Global.vue文件：</p>
-<p><img src="/2018/07/03/global/vue1.png" alt="vue1"><br><img src="HTTPP/http2.png" alt="http2"> </p>
+<p><img src="/2018/07/03/global/vue1.png" alt="vue1"></p>
 <h1 id="使用方式1："><a href="#使用方式1：" class="headerlink" title="使用方式1："></a>使用方式1：</h1><p>在需要的地方引用进全局变量模块文件，然后通过文件里面的变量名字获取全局变量参数值。</p>
 <p>在text1.vue组件中使用：</p>
 <p><img src="/2018/07/03/global/vue2.png" alt="vue2"><br><a id="more"></a></p>
