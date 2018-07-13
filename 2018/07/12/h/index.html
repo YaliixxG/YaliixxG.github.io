@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/12/h/h11.png">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/12/h/h12.png">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/12/h/h13.png">
-<meta property="og:updated_time" content="2018-07-12T08:40:59.320Z">
+<meta property="og:updated_time" content="2018-07-13T06:58:04.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《图解HTTP》学习笔记">
 <meta name="twitter:description" content="坚持 (｡◕ˇ∀ˇ◕)HTTP超文本传输协议（超文本转移协议） TCP/IP互联网相关的各类协议族的总称，协议存在各式各样的内容。从电缆的规格到IP地址的选定方法、双方建立通信的顺序，以及web页面显示需要处理的步骤，等等。按层次分别为：应用层、传输层、网络层、数据链路层。   从客户端发送请求到服务端接收请求流程如图：">
@@ -377,7 +377,7 @@
       
 
       
-        <h3 id="坚持-｡◕ˇ∀ˇ◕"><a href="#坚持-｡◕ˇ∀ˇ◕" class="headerlink" title="坚持 (｡◕ˇ∀ˇ◕)"></a>坚持 (｡◕ˇ∀ˇ◕)</h3><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>超文本传输协议（超文本转移协议）</p>
+        <h3 id="坚持-｡◕ˇ∀ˇ◕"><a href="#坚持-｡◕ˇ∀ˇ◕" class="headerlink" title="坚持 (｡◕ˇ∀ˇ◕)"></a>坚持 (｡◕ˇ∀ˇ◕)</h3><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>超文本传输协议（超文本转移协议）</p>
 <h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p>互联网相关的各类协议族的总称，协议存在各式各样的内容。从电缆的规格到IP地址的选定方法、双方建立通信的顺序，以及web页面显示需要处理的步骤，等等。<br>按层次分别为：应用层、传输层、网络层、数据链路层。  </p>
 <h4 id="从客户端发送请求到服务端接收请求流程如图："><a href="#从客户端发送请求到服务端接收请求流程如图：" class="headerlink" title="从客户端发送请求到服务端接收请求流程如图："></a>从客户端发送请求到服务端接收请求流程如图：</h4><p><img src="/2018/07/12/h/h2.png" alt="h2"><br><a id="more"></a></p>
 <h3 id="IP"><a href="#IP" class="headerlink" title="IP"></a>IP</h3><p>IP协议的作用是把各种数据包传送给对方。而要确保传送到对方那里，则需要满足各类条件。其中最重要的条件是IP地址和MAC地址（网卡所属的固定地址）<br><img src="/2018/07/12/h/h3.png" alt="h3">  </p>
@@ -408,9 +408,101 @@
 <li>三、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
 <li>四、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。  </li>
 </ul>
-<h3 id="HTTPS-HTTP-加密-认证-完整性保护"><a href="#HTTPS-HTTP-加密-认证-完整性保护" class="headerlink" title="HTTPS = HTTP + 加密 + 认证 + 完整性保护"></a>HTTPS = HTTP + 加密 + 认证 + 完整性保护</h3><p>HTTPS采用混合加密机制<br><img src="/2018/07/12/h/h13.png" alt="h13"></p>
+<h3 id="HTTPS-HTTP-加密-认证-完整性保护"><a href="#HTTPS-HTTP-加密-认证-完整性保护" class="headerlink" title="HTTPS = HTTP + 加密 + 认证 + 完整性保护"></a>HTTPS = HTTP + 加密 + 认证 + 完整性保护</h3><p>HTTPS采用混合加密机制<br><img src="/2018/07/12/h/h13.png" alt="h13">  </p>
 </li>
 </ul>
+<h1 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h1><p>是HTML5开始提供的一种在单个 TCP 连接上进行全双工通讯的协议.<br>在WebSocket API中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。</p>
+<p>浏览器通过 JavaScript 向服务器发出建立 WebSocket 连接的请求，连接建立以后，客户端和服务器端就可以通过 TCP 连接直接交换数据。</p>
+<p>当你获取 Web Socket 连接后，你可以通过 send() 方法来向服务器发送数据，并通过 onmessage 事件来接收服务器返回的数据。  </p>
+<pre><code>var Socket = new WebSocket(url, [protocol] );  
+</code></pre><p>以上代码中的第一个参数 url, 指定连接的 URL。第二个参数 protocol 是可选的，指定了可接受的子协议。  </p>
+<h4 id="WebSocket属性"><a href="#WebSocket属性" class="headerlink" title="WebSocket属性"></a>WebSocket属性</h4><ul>
+<li>Socket.readyState（只读属性， readyState 表示连接状态）<ul>
+<li>0 - 表示连接尚未建立。</li>
+<li>1 - 表示连接已建立，可以进行通信。</li>
+<li>2 - 表示连接正在进行关闭。</li>
+<li>3 - 表示连接已经关闭或者连接不能打开。  </li>
+</ul>
+</li>
+<li>Socket.bufferedAmount（只读属性bufferedAmount 已被 send() 放入正在队列中等待传输，但是还没有发出的 UTF-8 文本字节数。）  </li>
+</ul>
+<h4 id="WebSocket-事件"><a href="#WebSocket-事件" class="headerlink" title="WebSocket 事件"></a>WebSocket 事件</h4><p>以下是 WebSocket 对象的相关事件。假定我们使用了以上代码创建了 Socket 对象：  </p>
+<ul>
+<li>open  <ul>
+<li>Socket.onopen    连接建立时触发  </li>
+</ul>
+</li>
+<li>message  <ul>
+<li>Socket.onmessage 客户端接收服务端数据时触发</li>
+</ul>
+</li>
+<li>error  <ul>
+<li>Socket.onerror   通信发生错误时触发</li>
+</ul>
+</li>
+<li>close  <ul>
+<li>Socket.onclose   连接关闭时触发  </li>
+</ul>
+</li>
+</ul>
+<h4 id="WebSocket-方法"><a href="#WebSocket-方法" class="headerlink" title="WebSocket 方法"></a>WebSocket 方法</h4><p>以下是 WebSocket 对象的相关事件。假定我们使用了以上代码创建了 Socket 对象：  </p>
+<ul>
+<li>Socket.send()  使用连接发送数据  </li>
+<li>Socket.close() 关闭连接  </li>
+</ul>
+<h4 id="WebSocket-实例"><a href="#WebSocket-实例" class="headerlink" title="WebSocket 实例"></a>WebSocket 实例</h4><p>目前大部分浏览器支持 WebSocket() 接口，你可以在以下浏览器中尝试实例： Chrome, Mozilla, Opera 和 Safari。  </p>
+<pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
+        function WebSocketTest()
+        {
+           if (&quot;WebSocket&quot; in window)
+           {
+              alert(&quot;您的浏览器支持 WebSocket!&quot;);
+
+              // 打开一个 web socket
+              var ws = new WebSocket(&quot;ws://localhost:9998/echo&quot;);
+
+              ws.onopen = function()
+              {
+                 // Web Socket 已连接上，使用 send() 方法发送数据
+                 ws.send(&quot;发送数据&quot;);
+                 alert(&quot;数据发送中...&quot;);
+              };
+
+              ws.onmessage = function (evt) 
+              { 
+                 var received_msg = evt.data;
+                 alert(&quot;数据已接收...&quot;);
+              };
+
+              ws.onclose = function()
+              { 
+                 // 关闭 websocket
+                 alert(&quot;连接已关闭...&quot;); 
+              };
+           }
+
+           else
+           {
+              // 浏览器不支持 WebSocket
+              alert(&quot;您的浏览器不支持 WebSocket!&quot;);
+           }
+        }
+ &lt;/script&gt; 
+</code></pre><h5 id="安装pywebsocket"><a href="#安装pywebsocket" class="headerlink" title="安装pywebsocket"></a>安装pywebsocket</h5><p>在执行以上程序前，我们需要创建一个支持 WebSocket 的服务。从 pywebsocket 下载 mod_pywebsocket ,或者使用 git 命令下载：  </p>
+<pre><code>git clone https://github.com/google/pywebsocket.git  
+</code></pre><p>mod_pywebsocket 需要 python 环境支持</p>
+<p>mod_pywebsocket 是一个 Apache HTTP 的 Web Socket扩展，安装步骤如下：  </p>
+<ul>
+<li>解压下载的文件。  </li>
+<li>进入pywebsocket目录。  </li>
+<li>执行命令：  <pre><code>$ python setup.py build
+$ sudo python setup.py install  
+</code></pre></li>
+<li>查看文档说明：  <pre><code>$ pydoc mod_pywebsocket  
+</code></pre><h4 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h4>在 pywebsocket/mod_pywebsocket 目录下执行以下命令：  <pre><code>$ sudo python standalone.py -p 9998 -w ../example/  
+</code></pre>以上命令会开启一个端口号为 9998 的服务，使用 -w 来设置处理程序 echo_wsh.py 所在的目录。</li>
+</ul>
+<p>现在我们可以在 Chrome 浏览器打开前面创建的 runoob_websocket.html 文件。如果你的浏览器支持 WebSocket(), 点击”运行 WebSocket”，你就可以看到整个流程各个步骤弹出的窗口</p>
 
       
     </div>
@@ -597,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坚持-｡◕ˇ∀ˇ◕"><span class="nav-number">1.</span> <span class="nav-text">坚持 (｡◕ˇ∀ˇ◕)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">2.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP"><span class="nav-number">3.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从客户端发送请求到服务端接收请求流程如图："><span class="nav-number">3.1.</span> <span class="nav-text">从客户端发送请求到服务端接收请求流程如图：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">4.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">5.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">6.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#告知服务器意图的HTTP方法"><span class="nav-number">8.</span> <span class="nav-text">告知服务器意图的HTTP方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回结果的HTTP状态码"><span class="nav-number">9.</span> <span class="nav-text">返回结果的HTTP状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP首部字段一览"><span class="nav-number">10.</span> <span class="nav-text">HTTP首部字段一览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">11.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS和HTTP的区别主要为以下四点："><span class="nav-number">11.1.</span> <span class="nav-text">HTTPS和HTTP的区别主要为以下四点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS-HTTP-加密-认证-完整性保护"><span class="nav-number">12.</span> <span class="nav-text">HTTPS = HTTP + 加密 + 认证 + 完整性保护</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#坚持-｡◕ˇ∀ˇ◕"><span class="nav-number">1.</span> <span class="nav-text">坚持 (｡◕ˇ∀ˇ◕)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP"><span class="nav-number"></span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP"><span class="nav-number">1.</span> <span class="nav-text">TCP/IP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从客户端发送请求到服务端接收请求流程如图："><span class="nav-number">1.1.</span> <span class="nav-text">从客户端发送请求到服务端接收请求流程如图：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP"><span class="nav-number">2.</span> <span class="nav-text">IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">3.</span> <span class="nav-text">TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS"><span class="nav-number">4.</span> <span class="nav-text">DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#告知服务器意图的HTTP方法"><span class="nav-number">6.</span> <span class="nav-text">告知服务器意图的HTTP方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回结果的HTTP状态码"><span class="nav-number">7.</span> <span class="nav-text">返回结果的HTTP状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP首部字段一览"><span class="nav-number">8.</span> <span class="nav-text">HTTP首部字段一览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS"><span class="nav-number">9.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTTPS和HTTP的区别主要为以下四点："><span class="nav-number">9.1.</span> <span class="nav-text">HTTPS和HTTP的区别主要为以下四点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTPS-HTTP-加密-认证-完整性保护"><span class="nav-number">10.</span> <span class="nav-text">HTTPS = HTTP + 加密 + 认证 + 完整性保护</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WebSocket"><span class="nav-number"></span> <span class="nav-text">WebSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WebSocket属性"><span class="nav-number">0.1.</span> <span class="nav-text">WebSocket属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebSocket-事件"><span class="nav-number">0.2.</span> <span class="nav-text">WebSocket 事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebSocket-方法"><span class="nav-number">0.3.</span> <span class="nav-text">WebSocket 方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WebSocket-实例"><span class="nav-number">0.4.</span> <span class="nav-text">WebSocket 实例</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装pywebsocket"><span class="nav-number">0.4.1.</span> <span class="nav-text">安装pywebsocket</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开启服务"><span class="nav-number">0.5.</span> <span class="nav-text">开启服务</span></a></li></ol></li></ol></div>
             
 
           </div>
