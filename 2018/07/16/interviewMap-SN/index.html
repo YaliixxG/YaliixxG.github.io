@@ -90,7 +90,7 @@
 <meta property="og:description" content="一、JavaScript七种内置类型 基本类型   null   undefined   boolean number   string   symbol     对象(Object)注意：null是基本类型，但是typeof null会显示object">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/16/interviewMap-SN/map1.png">
-<meta property="og:updated_time" content="2018-07-16T07:49:32.699Z">
+<meta property="og:updated_time" content="2018-07-16T09:54:18.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《InterviewMap 面试图谱》总结笔记">
 <meta name="twitter:description" content="一、JavaScript七种内置类型 基本类型   null   undefined   boolean number   string   symbol     对象(Object)注意：null是基本类型，但是typeof null会显示object">
@@ -366,7 +366,7 @@
       
 
       
-        <h1 id="一、JavaScript"><a href="#一、JavaScript" class="headerlink" title="一、JavaScript"></a>一、JavaScript</h1><h1 id="七种内置类型"><a href="#七种内置类型" class="headerlink" title="七种内置类型"></a>七种内置类型</h1><ul>
+        <h1 id="一、JavaScript"><a href="#一、JavaScript" class="headerlink" title="一、JavaScript"></a>一、JavaScript</h1><h2 id="七种内置类型"><a href="#七种内置类型" class="headerlink" title="七种内置类型"></a>七种内置类型</h2><ul>
 <li>基本类型  <ul>
 <li>null  </li>
 <li>undefined  </li>
@@ -377,7 +377,7 @@
 </ul>
 </li>
 <li>对象(Object)<br>注意：null是基本类型，但是typeof null会显示object <a id="more"></a> 
-<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="对象转基本类型"><a href="#对象转基本类型" class="headerlink" title="对象转基本类型"></a>对象转基本类型</h2>对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。  <h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><img src="/2018/07/16/interviewMap-SN/map1.png" alt="map1">  <h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2></li>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="对象转基本类型"><a href="#对象转基本类型" class="headerlink" title="对象转基本类型"></a>对象转基本类型</h3>对象在转换基本类型时，首先会调用 valueOf 然后调用 toString。并且这两个方法你是可以重写的。  <h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><img src="/2018/07/16/interviewMap-SN/map1.png" alt="map1">  <h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3></li>
 <li>新生成了一个对象</li>
 <li>链接到原型</li>
 <li>绑定 this</li>
@@ -401,8 +401,8 @@ new Foo().getName(); // -&gt; 2
 <pre><code>new (Foo.getName());   
 (new Foo()).getName();
 </code></pre><p>对于第一个函数来说，先执行了 Foo.getName() ，所以结果为 1；对于后者来说，先执行 new Foo() 产生了一个实例，然后通过原型链找到了 Foo 上的 getName 函数，所以结果为 2。  </p>
-<h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><p>闭包的定义很简单：函数 A 返回了一个函数 B，并且函数 B 中使用了函数 A 的变量，函数 B 就被称为闭包。</p>
-<h1 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h1><pre><code>let a = {
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>闭包的定义很简单：函数 A 返回了一个函数 B，并且函数 B 中使用了函数 A 的变量，函数 B 就被称为闭包。</p>
+<h2 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h2><pre><code>let a = {
     age: 1
 }
 let b = a
@@ -410,20 +410,20 @@ a.age = 2
 console.log(b.age) // 2  
 </code></pre><p>从上述例子中我们可以发现，如果给一个变量赋值一个对象，那么两者的值会是同一个引用，其中一方改变，另一方也会相应改变。</p>
 <p>通常在开发中我们不希望出现这样的问题，我们可以使用浅拷贝来解决这个问题。  </p>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><h3 id="object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><a href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。" class="headerlink" title="object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"></a>object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</h3><pre><code>let a = {
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><h4 id="object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><a href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。" class="headerlink" title="object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"></a>object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</h4><pre><code>let a = {
     age: 1
 }
 let b = Object.assign({}, a)
 a.age = 2
 console.log(b.age) // 1  
-</code></pre><h3 id="我们也可以通过展开运算符（…）来解决"><a href="#我们也可以通过展开运算符（…）来解决" class="headerlink" title="我们也可以通过展开运算符（…）来解决"></a>我们也可以通过展开运算符（…）来解决</h3><pre><code>let a = {
+</code></pre><h4 id="我们也可以通过展开运算符（…）来解决"><a href="#我们也可以通过展开运算符（…）来解决" class="headerlink" title="我们也可以通过展开运算符（…）来解决"></a>我们也可以通过展开运算符（…）来解决</h4><pre><code>let a = {
     age: 1
 }
 let b = {...a}
 a.age = 2
 console.log(b.age) // 1  
-</code></pre><h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><p>如果拷贝的对象里面还包含对象的话，则需要深拷贝来解决。  </p>
-<h3 id="可以通过-JSON-parse-JSON-stringify-object-来解决。"><a href="#可以通过-JSON-parse-JSON-stringify-object-来解决。" class="headerlink" title="可以通过 JSON.parse(JSON.stringify(object)) 来解决。"></a>可以通过 JSON.parse(JSON.stringify(object)) 来解决。</h3><pre><code>let a = {
+</code></pre><h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>如果拷贝的对象里面还包含对象的话，则需要深拷贝来解决。  </p>
+<h4 id="可以通过-JSON-parse-JSON-stringify-object-来解决。"><a href="#可以通过-JSON-parse-JSON-stringify-object-来解决。" class="headerlink" title="可以通过 JSON.parse(JSON.stringify(object)) 来解决。"></a>可以通过 JSON.parse(JSON.stringify(object)) 来解决。</h4><pre><code>let a = {
     age: 1,
     jobs: {
         first: &apos;FE&apos;
@@ -432,10 +432,10 @@ console.log(b.age) // 1
 let b = JSON.parse(JSON.stringify(a))
 a.jobs.first = &apos;native&apos;
 console.log(b.jobs.first) // FE  
-</code></pre><h3 id="如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><a href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）" class="headerlink" title="如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）"></a>如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</h3><h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><p>ES6 的模块化(在有 Babel 的情况下使用)。  </p>
+</code></pre><h4 id="如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><a href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）" class="headerlink" title="如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）"></a>如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</h4><h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><p>ES6 的模块化(在有 Babel 的情况下使用)。  </p>
 <p>CommonJs 是 Node 独有的规范，浏览器中使用就需要用到 Browserify 解析了。  </p>
 <p>AMD 是由 RequireJS 提出的 </p>
-<h3 id="对于-CommonJS-和-ES6-中的模块化的两者区别是："><a href="#对于-CommonJS-和-ES6-中的模块化的两者区别是：" class="headerlink" title="对于 CommonJS 和 ES6 中的模块化的两者区别是："></a>对于 CommonJS 和 ES6 中的模块化的两者区别是：</h3><ul>
+<h4 id="对于-CommonJS-和-ES6-中的模块化的两者区别是："><a href="#对于-CommonJS-和-ES6-中的模块化的两者区别是：" class="headerlink" title="对于 CommonJS 和 ES6 中的模块化的两者区别是："></a>对于 CommonJS 和 ES6 中的模块化的两者区别是：</h4><ul>
 <li><p>前者支持动态导入，也就是 require(${path}/xx.js)，后者目前不支持，但是已有提案</p>
 </li>
 <li><p>前者是同步导入，因为用于服务端，文件都在本地，同步导入即使卡住主线程影响也不大。而后者是异步导入，因为用于浏览器，需要下载文件，如果也采用导入会对渲染有很大影响</p>
@@ -445,7 +445,7 @@ console.log(b.jobs.first) // FE
 <li><p>后者会编译成 require/exports 来执行的  </p>
 </li>
 </ul>
-<h3 id="AMD-语法"><a href="#AMD-语法" class="headerlink" title="AMD 语法"></a>AMD 语法</h3><p>requireJS定义了一个函数 define，它是全局变量，用来定义模块</p>
+<h4 id="AMD-语法"><a href="#AMD-语法" class="headerlink" title="AMD 语法"></a>AMD 语法</h4><p>requireJS定义了一个函数 define，它是全局变量，用来定义模块</p>
 <p>define(id?, dependencies?, factory);</p>
 <ol>
 <li>id：可选参数，用来定义模块的标识，如果没有提供该参数，脚本文件名（去掉拓展名）</li>
@@ -464,17 +464,17 @@ define(function(require, exports, module) {
 })  
 </code></pre></li>
 </ol>
-<h1 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h1><h3 id="将多次执行变为最后一次执行"><a href="#将多次执行变为最后一次执行" class="headerlink" title="将多次执行变为最后一次执行"></a>将多次执行变为最后一次执行</h3><blockquote>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><h4 id="将多次执行变为最后一次执行"><a href="#将多次执行变为最后一次执行" class="headerlink" title="将多次执行变为最后一次执行"></a>将多次执行变为最后一次执行</h4><blockquote>
 <p>指频繁触发的情况下，只有足够的空闲时间，才执行代码一次。比如生活中的坐公交，就是一定时间内，如果有人陆续刷卡上车，司机就不会开车。只有别人没刷卡了，司机才开车。 </p>
 <ul>
 <li>对于按钮防点击来说的实现：一旦我开始一个定时器，只要我定时器还在，不管你怎么点击都不会执行回调函数。一旦定时器结束并设置为 null，就可以再次点击了。</li>
 <li>对于延时执行函数来说的实现：每次调用防抖动函数都会判断本次调用和之前的时间间隔，如果小于需要的时间间隔，就会重新创建一个定时器，并且定时器的延时为设定时间减去之前的时间间隔。一旦时间到了，就会执行相应的回调函数。  </li>
 </ul>
 </blockquote>
-<h1 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h1><h3 id="将多次执行变成每隔一段时间执行。"><a href="#将多次执行变成每隔一段时间执行。" class="headerlink" title="将多次执行变成每隔一段时间执行。"></a>将多次执行变成每隔一段时间执行。</h3><blockquote>
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><h4 id="将多次执行变成每隔一段时间执行。"><a href="#将多次执行变成每隔一段时间执行。" class="headerlink" title="将多次执行变成每隔一段时间执行。"></a>将多次执行变成每隔一段时间执行。</h4><blockquote>
 <p>指一定时间内js方法只跑一次。比如人的眨眼睛，就是一定时间内眨一次。这是函数节流最形象的解释。  </p>
 </blockquote>
-<h1 id="继承-（详情见ES6阮一峰-class用法、继承）"><a href="#继承-（详情见ES6阮一峰-class用法、继承）" class="headerlink" title="继承 （详情见ES6阮一峰 class用法、继承）"></a>继承 （详情见ES6阮一峰 class用法、继承）</h1>
+<h2 id="继承-（详情见ES6阮一峰-class用法、继承）"><a href="#继承-（详情见ES6阮一峰-class用法、继承）" class="headerlink" title="继承 （详情见ES6阮一峰 class用法、继承）"></a>继承 （详情见ES6阮一峰 class用法、继承）</h2>
       
     </div>
     
@@ -656,7 +656,7 @@ define(function(require, exports, module) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、JavaScript"><span class="nav-number">1.</span> <span class="nav-text">一、JavaScript</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#七种内置类型"><span class="nav-number">2.</span> <span class="nav-text">七种内置类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">3.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象转基本类型"><span class="nav-number">3.1.</span> <span class="nav-text">对象转基本类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作符"><span class="nav-number">3.2.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new"><span class="nav-number">3.3.</span> <span class="nav-text">new</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#闭包"><span class="nav-number">4.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">5.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浅拷贝"><span class="nav-number">5.1.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><span class="nav-number">5.1.1.</span> <span class="nav-text">object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们也可以通过展开运算符（…）来解决"><span class="nav-number">5.1.2.</span> <span class="nav-text">我们也可以通过展开运算符（…）来解决</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深拷贝"><span class="nav-number">5.2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#可以通过-JSON-parse-JSON-stringify-object-来解决。"><span class="nav-number">5.2.1.</span> <span class="nav-text">可以通过 JSON.parse(JSON.stringify(object)) 来解决。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><span class="nav-number">5.2.2.</span> <span class="nav-text">如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块化"><span class="nav-number">6.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于-CommonJS-和-ES6-中的模块化的两者区别是："><span class="nav-number">6.0.1.</span> <span class="nav-text">对于 CommonJS 和 ES6 中的模块化的两者区别是：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AMD-语法"><span class="nav-number">6.0.2.</span> <span class="nav-text">AMD 语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#防抖"><span class="nav-number">7.</span> <span class="nav-text">防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将多次执行变为最后一次执行"><span class="nav-number">7.0.1.</span> <span class="nav-text">将多次执行变为最后一次执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节流"><span class="nav-number">8.</span> <span class="nav-text">节流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将多次执行变成每隔一段时间执行。"><span class="nav-number">8.0.1.</span> <span class="nav-text">将多次执行变成每隔一段时间执行。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#继承-（详情见ES6阮一峰-class用法、继承）"><span class="nav-number">9.</span> <span class="nav-text">继承 （详情见ES6阮一峰 class用法、继承）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、JavaScript"><span class="nav-number">1.</span> <span class="nav-text">一、JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七种内置类型"><span class="nav-number">1.1.</span> <span class="nav-text">七种内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象转基本类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象转基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作符"><span class="nav-number">1.2.2.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new"><span class="nav-number">1.2.3.</span> <span class="nav-text">new</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">1.4.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.4.1.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们也可以通过展开运算符（…）来解决"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">我们也可以通过展开运算符（…）来解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.4.2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可以通过-JSON-parse-JSON-stringify-object-来解决。"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">可以通过 JSON.parse(JSON.stringify(object)) 来解决。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">1.5.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于-CommonJS-和-ES6-中的模块化的两者区别是："><span class="nav-number">1.5.0.1.</span> <span class="nav-text">对于 CommonJS 和 ES6 中的模块化的两者区别是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-语法"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">AMD 语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖"><span class="nav-number">1.6.</span> <span class="nav-text">防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变为最后一次执行"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">将多次执行变为最后一次执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节流"><span class="nav-number">1.7.</span> <span class="nav-text">节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变成每隔一段时间执行。"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">将多次执行变成每隔一段时间执行。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-（详情见ES6阮一峰-class用法、继承）"><span class="nav-number">1.8.</span> <span class="nav-text">继承 （详情见ES6阮一峰 class用法、继承）</span></a></li></ol></li></ol></div>
             
 
           </div>
