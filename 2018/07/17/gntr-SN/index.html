@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="挖坑埋神经病">
 <meta property="og:description" content="GeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。    Generator 函数有两个特征：    f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T03:30:15.126Z">
+<meta property="og:updated_time" content="2018-07-17T06:56:42.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Generator知识点">
 <meta name="twitter:description" content="GeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。    Generator 函数有两个特征：    f">
@@ -511,7 +511,146 @@ gen.next(1); // Object {value: 1, done: true}
 <pre><code>gen.return(2); // Object {value: 2, done: true}
 // 相当于将 let result = yield x + y
 // 替换成 let result = return 2;  
-</code></pre><h2 id="yield-表达式-1"><a href="#yield-表达式-1" class="headerlink" title="yield* 表达式"></a>yield* 表达式</h2>
+</code></pre><h2 id="yield-表达式-1"><a href="#yield-表达式-1" class="headerlink" title="yield* 表达式"></a>yield* 表达式</h2><p>如果在 Generator 函数内部，调用另一个 Generator 函数，默认情况下是没有效果的。<code>yield*</code>表达式，用来在一个 Generator 函数里面执行另一个 Generator 函数。</p>
+<pre><code>function* foo() {
+yield &apos;a&apos;;
+yield &apos;b&apos;;
+}
+//普通方法调用foo() ==========================
+function* bar() {
+yield &apos;x&apos;;
+foo(); 
+yield &apos;y&apos;;
+}
+for (let v of bar()){
+console.log(v);
+}
+// &quot;x&quot;
+// &quot;y&quot;  
+//上面foo()的调用是没有效果的
+
+//yield*表达式调用 =================================
+function* bar() {
+yield &apos;x&apos;;
+yield* foo();
+yield &apos;y&apos;;
+}
+// 等同于
+function* bar() {
+yield &apos;x&apos;;
+yield &apos;a&apos;;
+yield &apos;b&apos;;
+yield &apos;y&apos;;
+}
+
+// 等同于
+function* bar() {
+yield &apos;x&apos;;
+for (let v of foo()) {
+    yield v;
+}
+yield &apos;y&apos;;
+}
+
+for (let v of bar()){
+console.log(v);
+}
+// &quot;x&quot;
+// &quot;a&quot;
+// &quot;b&quot;
+// &quot;y&quot;
+</code></pre><p>从语法角度看，如果<code>yield</code>表达式后面跟的是一个遍历器对象，需要在yield表达式后面加上星号，表明它返回的是一个遍历器对象。这被称为<code>yield*</code>表达式。  </p>
+<p><code>yield*</code>后面的 Generator 函数（没有return语句时），等同于在 Generator 函数内部，部署一个<code>for...of</code>循环。</p>
+<pre><code>function* concat(iter1, iter2) {
+yield* iter1;
+yield* iter2;
+}
+
+// 等同于
+
+function* concat(iter1, iter2) {
+for (var value of iter1) {
+    yield value;
+}
+for (var value of iter2) {
+    yield value;
+}
+}  
+</code></pre><p>上面代码说明，<code>yield*</code>后面的 Generator 函数（没有<code>return</code>语句时），不过是<code>for...of</code>的一种简写形式，完全可以用后者替代前者。反之，在有<code>return</code>语句时，则需要用<code>var value = yield* iterator</code>的形式获取<code>return</code>语句的值。</p>
+<h4 id="实际上，任何数据结构只要有-Iterator-接口，就可以被yield-遍历。"><a href="#实际上，任何数据结构只要有-Iterator-接口，就可以被yield-遍历。" class="headerlink" title="实际上，任何数据结构只要有 Iterator 接口，就可以被yield*遍历。"></a>实际上，任何数据结构只要有 Iterator 接口，就可以被yield*遍历。</h4><p><code>yield*</code>命令可以很方便地取出嵌套数组的所有成员。</p>
+<pre><code>function* iterTree(tree) {
+if (Array.isArray(tree)) {
+    for(let i=0; i &lt; tree.length; i++) {
+    yield* iterTree(tree[i]);
+    }
+} else {
+    yield tree;
+}
+}
+
+const tree = [ &apos;a&apos;, [&apos;b&apos;, &apos;c&apos;], [&apos;d&apos;, &apos;e&apos;] ];
+
+for(let x of iterTree(tree)) {
+console.log(x);
+}
+// a
+// b
+// c
+// d
+// e 
+</code></pre><h2 id="Generator-函数的this"><a href="#Generator-函数的this" class="headerlink" title="Generator 函数的this"></a>Generator 函数的this</h2><p>Generator 函数g返回的遍历器<code>obj</code>，是g的实例，而且继承了<code>g.prototype</code>。但是，如果把g当作普通的构造函数，并不会生效，因为g返回的总是遍历器对象，而不是<code>this</code>对象,也不能跟new命令一起用，会报错。  </p>
+<p>下面是一个变通方法。首先，生成一个空对象，使用<code>call</code>方法绑定 Generator 函数内部的this。这样，构造函数调用以后，这个空对象就是 Generator 函数的实例对象了。  </p>
+<pre><code>function* F() {
+this.a = 1;
+yield this.b = 2;
+yield this.c = 3;
+}
+var obj = {};
+var f = F.call(obj);
+
+f.next();  // Object {value: 2, done: false}
+f.next();  // Object {value: 3, done: false}
+f.next();  // Object {value: undefined, done: true}
+
+obj.a // 1
+obj.b // 2
+obj.c // 3  
+</code></pre><p>还有一个办法就是将obj换成<code>F.prototype</code>。</p>
+<pre><code>function* F() {
+this.a = 1;
+yield this.b = 2;
+yield this.c = 3;
+}
+var f = F.call(F.prototype);
+
+f.next();  // Object {value: 2, done: false}
+f.next();  // Object {value: 3, done: false}
+f.next();  // Object {value: undefined, done: true}
+
+f.a // 1
+f.b // 2
+f.c // 3  
+</code></pre><p>再将F改成构造函数，就可以对它执行<code>new</code>命令了。</p>
+<pre><code>function* gen() {
+this.a = 1;
+yield this.b = 2;
+yield this.c = 3;
+}
+
+function F() {
+return gen.call(gen.prototype);
+}
+
+var f = new F();
+
+f.next();  // Object {value: 2, done: false}
+f.next();  // Object {value: 3, done: false}
+f.next();  // Object {value: undefined, done: true}
+
+f.a // 1
+f.b // 2
+f.c // 3
+</code></pre>
       
     </div>
     
@@ -693,7 +832,7 @@ gen.next(1); // Object {value: 1, done: true}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generator"><span class="nav-number">1.</span> <span class="nav-text">Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式"><span class="nav-number">1.1.</span> <span class="nav-text">yield 表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-方法的参数"><span class="nav-number">1.2.</span> <span class="nav-text">next 方法的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…of-循环"><span class="nav-number">1.3.</span> <span class="nav-text">for…of 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-throw"><span class="nav-number">1.4.</span> <span class="nav-text">Generator.prototype.throw()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-return"><span class="nav-number">1.5.</span> <span class="nav-text">Generator.prototype.return()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-、throw-、return-的共同点"><span class="nav-number">1.6.</span> <span class="nav-text">next()、throw()、return() 的共同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式-1"><span class="nav-number">1.7.</span> <span class="nav-text">yield* 表达式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generator"><span class="nav-number">1.</span> <span class="nav-text">Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式"><span class="nav-number">1.1.</span> <span class="nav-text">yield 表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-方法的参数"><span class="nav-number">1.2.</span> <span class="nav-text">next 方法的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…of-循环"><span class="nav-number">1.3.</span> <span class="nav-text">for…of 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-throw"><span class="nav-number">1.4.</span> <span class="nav-text">Generator.prototype.throw()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-return"><span class="nav-number">1.5.</span> <span class="nav-text">Generator.prototype.return()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-、throw-、return-的共同点"><span class="nav-number">1.6.</span> <span class="nav-text">next()、throw()、return() 的共同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式-1"><span class="nav-number">1.7.</span> <span class="nav-text">yield* 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实际上，任何数据结构只要有-Iterator-接口，就可以被yield-遍历。"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">实际上，任何数据结构只要有 Iterator 接口，就可以被yield*遍历。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-函数的this"><span class="nav-number">1.8.</span> <span class="nav-text">Generator 函数的this</span></a></li></ol></li></ol></div>
             
 
           </div>
