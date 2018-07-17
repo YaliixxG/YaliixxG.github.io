@@ -90,7 +90,7 @@
 <meta property="og:description" content="一、JavaScript七种内置类型 基本类型   null   undefined   boolean number   string   symbol     对象(Object)注意：null是基本类型，但是typeof null会显示object">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yaliixxg.github.io/2018/07/16/interviewMap-SN/map1.png">
-<meta property="og:updated_time" content="2018-07-16T09:54:18.963Z">
+<meta property="og:updated_time" content="2018-07-17T01:59:40.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《InterviewMap 面试图谱》总结笔记">
 <meta name="twitter:description" content="一、JavaScript七种内置类型 基本类型   null   undefined   boolean number   string   symbol     对象(Object)注意：null是基本类型，但是typeof null会显示object">
@@ -474,7 +474,25 @@ define(function(require, exports, module) {
 <h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><h4 id="将多次执行变成每隔一段时间执行。"><a href="#将多次执行变成每隔一段时间执行。" class="headerlink" title="将多次执行变成每隔一段时间执行。"></a>将多次执行变成每隔一段时间执行。</h4><blockquote>
 <p>指一定时间内js方法只跑一次。比如人的眨眼睛，就是一定时间内眨一次。这是函数节流最形象的解释。  </p>
 </blockquote>
-<h2 id="继承-（详情见ES6阮一峰-class用法、继承）"><a href="#继承-（详情见ES6阮一峰-class用法、继承）" class="headerlink" title="继承 （详情见ES6阮一峰 class用法、继承）"></a>继承 （详情见ES6阮一峰 class用法、继承）</h2>
+<h2 id="继承-（详情见ES6阮一峰-class用法、继承）"><a href="#继承-（详情见ES6阮一峰-class用法、继承）" class="headerlink" title="继承 （详情见ES6阮一峰 class用法、继承）"></a>继承 （详情见ES6阮一峰 class用法、继承）</h2><h2 id="call-apply-bind区别"><a href="#call-apply-bind区别" class="headerlink" title="call,apply,bind区别"></a>call,apply,bind区别</h2><p><code>call</code> 和 <code>apply</code> 都是为了解决改变 this 的指向。作用都是相同的，只是传参的方式不同。<br>除了第一个参数外，call 可以接收一个参数列表，apply 只接受一个参数数组。</p>
+<pre><code>let a = {
+    value: 1
+}
+function getValue(name, age) {
+    console.log(name)
+    console.log(age)
+    console.log(this.value)
+}
+getValue.call(a, &apos;yck&apos;, &apos;24&apos;)
+getValue.apply(a, [&apos;yck&apos;, &apos;24&apos;])  
+</code></pre><p><code>bind</code>和其他两个方法作用也是一致的，只是该方法会返回一个函数。并且我们可以通过 bind 实现柯里化。<br><code>柯里化</code>是指将使用多个参数的函数转换成一系列使用一个参数的函数的技术。</p>
+<h2 id="Promise-实现-（详情见ES6阮一峰）"><a href="#Promise-实现-（详情见ES6阮一峰）" class="headerlink" title="Promise 实现 （详情见ES6阮一峰）"></a>Promise 实现 （详情见ES6阮一峰）</h2><p>可以把 Promise 看成一个状态机。初始是 <code>pending</code> 状态，可以通过函数 <code>resolve</code> 和 <code>reject</code> ，将状态转变为 resolved(已定型) 或者 rejected(已失败) 状态，状态一旦改变就不能再次变化。<br><code>then</code> 函数会返回一个 Promise 实例，并且该返回值是一个新的实例而不是之前的实例。  </p>
+<h2 id="Generator-实现"><a href="#Generator-实现" class="headerlink" title="Generator 实现"></a>Generator 实现</h2><p>Generator 函数有两个特征：  </p>
+<ul>
+<li>function关键字与函数名之间有一个星号</li>
+<li>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）</li>
+</ul>
+
       
     </div>
     
@@ -513,6 +531,10 @@ define(function(require, exports, module) {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/17/generator-SN/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -594,7 +616,7 @@ define(function(require, exports, module) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -656,7 +678,7 @@ define(function(require, exports, module) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、JavaScript"><span class="nav-number">1.</span> <span class="nav-text">一、JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七种内置类型"><span class="nav-number">1.1.</span> <span class="nav-text">七种内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象转基本类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象转基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作符"><span class="nav-number">1.2.2.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new"><span class="nav-number">1.2.3.</span> <span class="nav-text">new</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">1.4.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.4.1.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们也可以通过展开运算符（…）来解决"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">我们也可以通过展开运算符（…）来解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.4.2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可以通过-JSON-parse-JSON-stringify-object-来解决。"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">可以通过 JSON.parse(JSON.stringify(object)) 来解决。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">1.5.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于-CommonJS-和-ES6-中的模块化的两者区别是："><span class="nav-number">1.5.0.1.</span> <span class="nav-text">对于 CommonJS 和 ES6 中的模块化的两者区别是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-语法"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">AMD 语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖"><span class="nav-number">1.6.</span> <span class="nav-text">防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变为最后一次执行"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">将多次执行变为最后一次执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节流"><span class="nav-number">1.7.</span> <span class="nav-text">节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变成每隔一段时间执行。"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">将多次执行变成每隔一段时间执行。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-（详情见ES6阮一峰-class用法、继承）"><span class="nav-number">1.8.</span> <span class="nav-text">继承 （详情见ES6阮一峰 class用法、继承）</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、JavaScript"><span class="nav-number">1.</span> <span class="nav-text">一、JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七种内置类型"><span class="nav-number">1.1.</span> <span class="nav-text">七种内置类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">1.2.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象转基本类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">对象转基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作符"><span class="nav-number">1.2.2.</span> <span class="nav-text">操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#new"><span class="nav-number">1.2.3.</span> <span class="nav-text">new</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">1.3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深浅拷贝"><span class="nav-number">1.4.</span> <span class="nav-text">深浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浅拷贝"><span class="nav-number">1.4.1.</span> <span class="nav-text">浅拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object-assign-target-source1-source2-方法用于对象的合并，将源对象（-source-）的所有可枚举属性，复制到目标对象（-target-）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">object.assign(target, source1, source2) 方法用于对象的合并，将源对象（ source ）的所有可枚举属性，复制到目标对象（ target ）。如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们也可以通过展开运算符（…）来解决"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">我们也可以通过展开运算符（…）来解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深拷贝"><span class="nav-number">1.4.2.</span> <span class="nav-text">深拷贝</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#可以通过-JSON-parse-JSON-stringify-object-来解决。"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">可以通过 JSON.parse(JSON.stringify(object)) 来解决。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用-MessageChannel。（具体搜索实例）"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">如果你所需拷贝的对象含有内置类型并且不包含函数，可以使用 MessageChannel。（具体搜索实例）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">1.5.</span> <span class="nav-text">模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对于-CommonJS-和-ES6-中的模块化的两者区别是："><span class="nav-number">1.5.0.1.</span> <span class="nav-text">对于 CommonJS 和 ES6 中的模块化的两者区别是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD-语法"><span class="nav-number">1.5.0.2.</span> <span class="nav-text">AMD 语法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖"><span class="nav-number">1.6.</span> <span class="nav-text">防抖</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变为最后一次执行"><span class="nav-number">1.6.0.1.</span> <span class="nav-text">将多次执行变为最后一次执行</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节流"><span class="nav-number">1.7.</span> <span class="nav-text">节流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将多次执行变成每隔一段时间执行。"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">将多次执行变成每隔一段时间执行。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承-（详情见ES6阮一峰-class用法、继承）"><span class="nav-number">1.8.</span> <span class="nav-text">继承 （详情见ES6阮一峰 class用法、继承）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#call-apply-bind区别"><span class="nav-number">1.9.</span> <span class="nav-text">call,apply,bind区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise-实现-（详情见ES6阮一峰）"><span class="nav-number">1.10.</span> <span class="nav-text">Promise 实现 （详情见ES6阮一峰）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-实现"><span class="nav-number">1.11.</span> <span class="nav-text">Generator 实现</span></a></li></ol></li></ol></div>
             
 
           </div>
