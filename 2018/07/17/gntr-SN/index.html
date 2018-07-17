@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Generator," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="title: Generator语法与异步应用date: 2018-07-17 10:00:39tags: 面试  categories: GeneratorGeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态">
+<meta name="description" content="GeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。    Generator 函数有两个特征：    f">
+<meta name="keywords" content="Generator">
 <meta property="og:type" content="article">
-<meta property="og:title" content="挖坑埋神经病">
-<meta property="og:url" content="http://yaliixxg.github.io/2018/07/17/generator-SN/index.html">
+<meta property="og:title" content="Generator知识点">
+<meta property="og:url" content="http://yaliixxg.github.io/2018/07/17/gntr-SN/index.html">
 <meta property="og:site_name" content="挖坑埋神经病">
-<meta property="og:description" content="title: Generator语法与异步应用date: 2018-07-17 10:00:39tags: 面试  categories: GeneratorGeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态">
+<meta property="og:description" content="GeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。    Generator 函数有两个特征：    f">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T03:13:13.752Z">
+<meta property="og:updated_time" content="2018-07-17T03:30:15.126Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="挖坑埋神经病">
-<meta name="twitter:description" content="title: Generator语法与异步应用date: 2018-07-17 10:00:39tags: 面试  categories: GeneratorGeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态">
+<meta name="twitter:title" content="Generator知识点">
+<meta name="twitter:description" content="GeneratorGenerator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。 执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。    Generator 函数有两个特征：    f">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yaliixxg.github.io/2018/07/17/generator-SN/"/>
+  <link rel="canonical" href="http://yaliixxg.github.io/2018/07/17/gntr-SN/"/>
 
 
 
 
 
-  <title> | 挖坑埋神经病</title>
+  <title>Generator知识点 | 挖坑埋神经病</title>
   
 
 
@@ -274,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/07/17/generator-SN/">
+    <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/07/17/gntr-SN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YaliixxG">
@@ -291,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Generator知识点</h1>
         
 
         <div class="post-meta">
@@ -303,7 +304,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T10:00:39+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T11:12:05+08:00">
                 2018-07-17
               </time>
             
@@ -313,6 +314,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -341,15 +364,13 @@
       
 
       
-        <hr>
-<p>title: Generator语法与异步应用<br>date: 2018-07-17 10:00:39<br>tags: 面试 </p>
-<h2 id="categories-Generator"><a href="#categories-Generator" class="headerlink" title="categories: Generator"></a>categories: Generator</h2><h1 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h1><p>Generator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
+        <h1 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h1><p>Generator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。</p>
 <p>执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。  </p>
 <ul>
 <li><p>Generator 函数有两个特征：  </p>
 <ul>
-<li>function关键字与函数名之间有一个星号</li>
-<li><p>函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）  </p>
+<li><code>function</code>关键字与函数名之间有一个<code>星号</code></li>
+<li><p>函数体内部使用<code>yield</code>表达式，定义不同的内部状态（<code>yield</code>在英语里的意思就是“产出”）  </p>
 <a id="more"></a>
 <pre><code>function* helloWorldGenerator() {
 yield &apos;hello&apos;;
@@ -505,6 +526,12 @@ gen.next(1); // Object {value: 1, done: true}
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Generator/" rel="tag"># Generator</a>
+          
+        </div>
+      
 
       
       
@@ -626,7 +653,7 @@ gen.next(1); // Object {value: 1, done: true}
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -666,7 +693,7 @@ gen.next(1); // Object {value: 1, done: true}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-Generator"><span class="nav-number">1.</span> <span class="nav-text">categories: Generator</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Generator"><span class="nav-number"></span> <span class="nav-text">Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式"><span class="nav-number">1.</span> <span class="nav-text">yield 表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-方法的参数"><span class="nav-number">2.</span> <span class="nav-text">next 方法的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…of-循环"><span class="nav-number">3.</span> <span class="nav-text">for…of 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-throw"><span class="nav-number">4.</span> <span class="nav-text">Generator.prototype.throw()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-return"><span class="nav-number">5.</span> <span class="nav-text">Generator.prototype.return()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-、throw-、return-的共同点"><span class="nav-number">6.</span> <span class="nav-text">next()、throw()、return() 的共同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式-1"><span class="nav-number">7.</span> <span class="nav-text">yield* 表达式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Generator"><span class="nav-number">1.</span> <span class="nav-text">Generator</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式"><span class="nav-number">1.1.</span> <span class="nav-text">yield 表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-方法的参数"><span class="nav-number">1.2.</span> <span class="nav-text">next 方法的参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for…of-循环"><span class="nav-number">1.3.</span> <span class="nav-text">for…of 循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-throw"><span class="nav-number">1.4.</span> <span class="nav-text">Generator.prototype.throw()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generator-prototype-return"><span class="nav-number">1.5.</span> <span class="nav-text">Generator.prototype.return()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-、throw-、return-的共同点"><span class="nav-number">1.6.</span> <span class="nav-text">next()、throw()、return() 的共同点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-表达式-1"><span class="nav-number">1.7.</span> <span class="nav-text">yield* 表达式</span></a></li></ol></li></ol></div>
             
 
           </div>
