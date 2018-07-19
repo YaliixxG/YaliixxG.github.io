@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-07-17T06:56:42.809Z</updated>
+  <updated>2018-07-19T09:39:39.609Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>created mounted 更新获取DOM问题</title>
+    <link href="http://yaliixxg.github.io/2018/07/19/lifecicle/"/>
+    <id>http://yaliixxg.github.io/2018/07/19/lifecicle/</id>
+    <published>2018-07-19T09:12:05.000Z</published>
+    <updated>2018-07-19T09:39:39.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>口水记录一个问题。 ┓(;´_｀)┏ </p><p>写代码的时候，遇到一个问题，就是在<code>created</code>里面调用接口获取数据，利用<code>v-for</code>渲染<code>DOM</code>后，再在<code>mounted</code>里面调用渲染后的<code>DOM</code>时，一直无法获取到，显示为<code>undefined</code>。<br><a id="more"></a></p><p>按照<code>VUE</code>的生命周期来说  </p><blockquote><ul><li><code>created</code> 组件实例创建完成，属性已绑定，但<code>DOM</code>还未生成，<code>$el</code>属性还不存在。  </li><li><code>mounted</code>模板编译/挂载之后。  </li></ul></blockquote><p>按道理，在<code>mounted</code>里面是可以获取到<code>created</code>阶段渲染的<code>DOM</code>的。后来通过<code>console.log()</code>来进行判断，发现在<code>mounted</code>里面的代码开始执行时，<code>created</code>阶段的<code>DOM</code>渲染还未完成。  </p><p>把<code>mounted</code>改为<code>updated</code>，<code>DOM</code>是可以获取到的，但是由于我的代码中涉及到倒计时等频繁更新<code>DOM</code>的状态，所以放弃了<code>updated</code>的这个方法。  </p><blockquote><ul><li><code>updated</code>  组件更新之后</li></ul></blockquote><p>后来通过查阅文档发现，有一个方法可以解决这种问题，调用<code>$nextTick</code>这个<code>vue</code>的全局方法。即在<code>mounted</code>里面调用此方法，用于<code>DOM</code>加载更新完后进行的一次回调函数性质的操作。  </p><pre><code>mounted(){    this.$nextTick(_=&gt;{        //你的代码部分    })}</code></pre><p>但是很可悲 = = ，我的<code>created</code>里渲染的<code>DOM</code>还是比它要晚执行完，所以获取<code>DOM</code>依然是<code>undefined</code>。  </p><p>最后用了一个简单粗暴的方法解决了此问题。  </p><pre><code>mounted() {    setTimeout(_ =&gt; {    //你的代码部分    }, 1000);}  </code></pre><p> (o°ω°o) </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;口水记录一个问题。 ┓(;´_｀)┏ &lt;/p&gt;
+&lt;p&gt;写代码的时候，遇到一个问题，就是在&lt;code&gt;created&lt;/code&gt;里面调用接口获取数据，利用&lt;code&gt;v-for&lt;/code&gt;渲染&lt;code&gt;DOM&lt;/code&gt;后，再在&lt;code&gt;mounted&lt;/code&gt;里面调用渲染后的&lt;code&gt;DOM&lt;/code&gt;时，一直无法获取到，显示为&lt;code&gt;undefined&lt;/code&gt;。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="web" scheme="http://yaliixxg.github.io/categories/web/"/>
+    
+    
+      <category term="vue 生命周期" scheme="http://yaliixxg.github.io/tags/vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Generator知识点</title>
