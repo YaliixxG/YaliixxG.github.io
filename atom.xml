@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-07-19T09:39:39.609Z</updated>
+  <updated>2018-07-23T02:04:21.324Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>跨域</title>
+    <link href="http://yaliixxg.github.io/2018/07/23/kuayu/"/>
+    <id>http://yaliixxg.github.io/2018/07/23/kuayu/</id>
+    <published>2018-07-23T01:32:02.000Z</published>
+    <updated>2018-07-23T02:04:21.324Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h2><p>同源策略，它是由Netscape提出的一个著名的安全策略。<br>现在所有支持JavaScript 的浏览器都会使用这个策略。<br>所谓同源是指，域名，协议，端口相同。<br>因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。<br><a id="more"></a> </p><h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><p><code>JSONP</code> 的原理很简单，就是利用 <code>&lt;script&gt;</code> 标签没有跨域限制的漏洞。通过 <code>&lt;script&gt;</code> 标签指向一个需要访问的地址并提供一个回调函数来接收数据当需要通讯时。  </p><pre><code>&lt;script src=&quot;http://domain/api?param1=a&amp;param2=b&amp;callback=jsonp&quot;&gt;&lt;/script&gt;&lt;script&gt;    function jsonp(data) {        console.log(data)    }&lt;/script&gt;    </code></pre><p><code>JSONP</code> 使用简单且兼容性不错，但是只限于 <code>get</code> 请求。  </p><h2 id="封装JSONP"><a href="#封装JSONP" class="headerlink" title="封装JSONP"></a>封装JSONP</h2><pre><code>function jsonp(url,jsonpCallback,success){    let script = document.creatElement(&quot;script&quot;);    script.src = url;    script.async = true;    script.type = &quot;text/javascript&quot;;    window[jsonpCallback] = function(data){        success &amp; success(data);    };    document.body.appendChild(script);}  jsonp(&quot;http://xxx&quot;,&quot;callback&quot;,function(value) {    console.log(value);});  </code></pre><h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p><code>CORS</code>需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。</p><p>浏览器会自动进行 <code>CORS</code> 通信，实现CORS通信的关键是后端。只要后端实现了 <code>CORS</code>，就实现了跨域。</p><p>服务端设置 <code>Access-Control-Allow-Origin</code> 就可以开启 <code>CORS</code>。 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。  </p><h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p>这种方式通常用于获取嵌入页面中的第三方页面数据。一个页面发送消息，另一个页面判断来源并接收消息  </p><pre><code>// 发送消息端window.parent.postMessage(&apos;message&apos;, &apos;http://test.com&apos;);// 接收消息端var mc = new MessageChannel();mc.addEventListener(&apos;message&apos;, (event) =&gt; {    var origin = event.origin || event.originalEvent.origin;     if (origin === &apos;http://test.com&apos;) {        console.log(&apos;验证通过&apos;)    }});</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是同源策略？&quot;&gt;&lt;a href=&quot;#什么是同源策略？&quot; class=&quot;headerlink&quot; title=&quot;什么是同源策略？&quot;&gt;&lt;/a&gt;什么是同源策略？&lt;/h2&gt;&lt;p&gt;同源策略，它是由Netscape提出的一个著名的安全策略。&lt;br&gt;现在所有支持JavaScript 的浏览器都会使用这个策略。&lt;br&gt;所谓同源是指，域名，协议，端口相同。&lt;br&gt;因为浏览器出于安全考虑，有同源策略。也就是说，如果协议、域名或者端口有一个不同就是跨域，Ajax 请求会失败。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="web" scheme="http://yaliixxg.github.io/categories/web/"/>
+    
+    
+      <category term="跨域 JSONP" scheme="http://yaliixxg.github.io/tags/%E8%B7%A8%E5%9F%9F-JSONP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>created mounted 更新获取DOM问题</title>
     <link href="http://yaliixxg.github.io/2018/07/19/lifecicle/"/>
     <id>http://yaliixxg.github.io/2018/07/19/lifecicle/</id>
     <published>2018-07-19T09:12:05.000Z</published>
-    <updated>2018-07-19T09:39:39.609Z</updated>
+    <updated>2018-07-19T09:45:54.633Z</updated>
     
     <content type="html"><![CDATA[<p>口水记录一个问题。 ┓(;´_｀)┏ </p><p>写代码的时候，遇到一个问题，就是在<code>created</code>里面调用接口获取数据，利用<code>v-for</code>渲染<code>DOM</code>后，再在<code>mounted</code>里面调用渲染后的<code>DOM</code>时，一直无法获取到，显示为<code>undefined</code>。<br><a id="more"></a></p><p>按照<code>VUE</code>的生命周期来说  </p><blockquote><ul><li><code>created</code> 组件实例创建完成，属性已绑定，但<code>DOM</code>还未生成，<code>$el</code>属性还不存在。  </li><li><code>mounted</code>模板编译/挂载之后。  </li></ul></blockquote><p>按道理，在<code>mounted</code>里面是可以获取到<code>created</code>阶段渲染的<code>DOM</code>的。后来通过<code>console.log()</code>来进行判断，发现在<code>mounted</code>里面的代码开始执行时，<code>created</code>阶段的<code>DOM</code>渲染还未完成。  </p><p>把<code>mounted</code>改为<code>updated</code>，<code>DOM</code>是可以获取到的，但是由于我的代码中涉及到倒计时等频繁更新<code>DOM</code>的状态，所以放弃了<code>updated</code>的这个方法。  </p><blockquote><ul><li><code>updated</code>  组件更新之后</li></ul></blockquote><p>后来通过查阅文档发现，有一个方法可以解决这种问题，调用<code>$nextTick</code>这个<code>vue</code>的全局方法。即在<code>mounted</code>里面调用此方法，用于<code>DOM</code>加载更新完后进行的一次回调函数性质的操作。  </p><pre><code>mounted(){    this.$nextTick(_=&gt;{        //你的代码部分    })}</code></pre><p>但是很可悲 = = ，我的<code>created</code>里渲染的<code>DOM</code>还是比它要晚执行完，所以获取<code>DOM</code>依然是<code>undefined</code>。  </p><p>最后用了一个简单粗暴的方法解决了此问题。  </p><pre><code>mounted() {    setTimeout(_ =&gt; {    //你的代码部分    }, 1000);}  </code></pre><p> (o°ω°o) </p>]]></content>
     
