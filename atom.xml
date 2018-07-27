@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-07-23T02:04:21.324Z</updated>
+  <updated>2018-07-27T03:25:06.586Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最常见的前端面试题</title>
+    <link href="http://yaliixxg.github.io/2018/07/27/caseInterview/"/>
+    <id>http://yaliixxg.github.io/2018/07/27/caseInterview/</id>
+    <published>2018-07-27T02:59:26.000Z</published>
+    <updated>2018-07-27T03:25:06.586Z</updated>
+    
+    <content type="html"><![CDATA[<p>持续更新 (*❦ω❦)</p><h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><ul><li>在标准模式下，一个块的总宽度= width + margin(左右) + padding(左右) + border(左右)  </li><li>在怪异模式(IE)下，一个块的总宽度= width + margin(左右)（即width已经包含了padding和border值）<a id="more"></a>  </li></ul><h2 id="position包含几种属性？absolute和relative的区别？"><a href="#position包含几种属性？absolute和relative的区别？" class="headerlink" title="position包含几种属性？absolute和relative的区别？"></a>position包含几种属性？absolute和relative的区别？</h2><ul><li>static：默认状态、没有定位、正常流 </li><li>inherit：从父元素集成position属性的值</li><li>fixed：生成绝对定位的元素（相对于浏览器窗口进行定位）</li><li>absolute：生成绝对定位的元素（相位与static定位以外的第一个父元素定位）</li><li>relative：生成相对定位的元素（相对于其正常位置定位）<blockquote><p>absolute和relative区别：父元素的padding对relative的子元素布局有影响，absolute的子元素不受影响  </p></blockquote></li></ul><h2 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h2><blockquote><p>减少HTTP请求、使用内容发布网络、压缩组件、使用Expire头、JS放底部、CSS放顶部、避免CSS表达式等。（详情见web前端性能优化）</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;持续更新 (*❦ω❦)&lt;/p&gt;
+&lt;h2 id=&quot;盒子模型&quot;&gt;&lt;a href=&quot;#盒子模型&quot; class=&quot;headerlink&quot; title=&quot;盒子模型&quot;&gt;&lt;/a&gt;盒子模型&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;在标准模式下，一个块的总宽度= width + margin(左右) + padding(左右) + border(左右)  &lt;/li&gt;
+&lt;li&gt;在怪异模式(IE)下，一个块的总宽度= width + margin(左右)（即width已经包含了padding和border值）&lt;/li&gt;&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="web" scheme="http://yaliixxg.github.io/categories/web/"/>
+    
+    
+      <category term="前端面试题" scheme="http://yaliixxg.github.io/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yaliixxg.github.io/2018/07/23/eventLoop/"/>
+    <id>http://yaliixxg.github.io/2018/07/23/eventLoop/</id>
+    <published>2018-07-23T03:18:46.181Z</published>
+    <updated>2018-07-23T03:33:27.927Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: eventLoop<br>date: 2018-07-23 11:18:46<br>tags: 事件循环 event loop </p><h2 id="categories-web"><a href="#categories-web" class="headerlink" title="categories: web"></a>categories: web</h2><p>微任务（<code>microtask</code>）称为 <code>jobs</code> 。包括 <code>process.nextTick</code> ，<code>promise</code> ，<code>Object.observe</code> ，<code>MutationObserver</code>  </p><p>宏任务（<code>macrotask）</code>称为 <code>task</code> 。包括 <code>script</code> ， <code>setTimeout</code> ，<code>setInterval</code> ，<code>setImmediate</code> ，<code>I/O</code> ，<code>UI rendering</code>  </p><h2 id="Event-loop-执行顺序"><a href="#Event-loop-执行顺序" class="headerlink" title="Event loop 执行顺序"></a>Event loop 执行顺序</h2><ol><li>执行同步代码，这属于宏任务</li><li>执行栈为空，查询是否有微任务需要执行</li><li>执行所有微任务</li><li>必要的话渲染 <code>UI</code></li><li>然后开始下一轮 <code>Event loop</code>，执行宏任务中的异步代码  </li></ol><p>很多人有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 <code>script</code> ，浏览器会先执行一个宏任务，接下来有异步代码的话就先执行微任务。  </p><p>通过上述的 <code>Event loop</code> 顺序可知，如果宏任务中的异步代码有大量的计算并且需要操作 <code>DOM</code> 的话，为了更快的界面响应，我们可以把操作 <code>DOM</code> 放入微任务中。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: eventLoop&lt;br&gt;date: 2018-07-23 11:18:46&lt;br&gt;tags: 事件循环 event loop &lt;/p&gt;
+&lt;h2 id=&quot;categories-web&quot;&gt;&lt;a href=&quot;#categories-web&quot; class=
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>跨域</title>
