@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="挖坑埋神经病">
 <meta property="og:description" content="安装npm install -g create-react-app   create-react-app my-app cd my-app npm start">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-14T10:01:12.898Z">
+<meta property="og:updated_time" content="2018-08-15T01:08:37.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 学习笔记">
 <meta name="twitter:description" content="安装npm install -g create-react-app   create-react-app my-app cd my-app npm start">
@@ -466,7 +466,73 @@ this.setState((prevState, props) =&gt; ({
     });
   });
 }
-</code></pre><h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2>
+</code></pre><h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><blockquote>
+<p>由于类的方法默认不会绑定this，因此在调用的时候如果忘记绑定，this的值将会是undefined。<br>通常如果不是直接调用，应该为方法绑定this。绑定方式有以下几种：  </p>
+<ol>
+<li>在构造函数中使用bind绑定this  </li>
+</ol>
+</blockquote>
+<pre><code>class Button extends React.Component {
+constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(){
+    console.log(&apos;this is:&apos;, this);
+  }
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre><ol start="2">
+<li><p>在调用的时候使用bind绑定this   </p>
+<pre><code>class Button extends React.Component {
+  handleClick(){
+    console.log(&apos;this is:&apos;, this);
+  }
+  render() {
+    return (
+      &lt;button onClick={this.handleClick.bind(this)}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre></li>
+<li><p>在调用的时候使用箭头函数绑定this  </p>
+<pre><code>class Button extends React.Component {
+  handleClick(){
+    console.log(&apos;this is:&apos;, this);
+  }
+  render() {
+    return (
+      &lt;button onClick={()=&gt;this.handleClick()}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre></li>
+<li><p>使用属性初始化器语法绑定this(实验性)  </p>
+<pre><code>class Button extends React.Component {
+  handleClick=()=&gt;{
+    console.log(&apos;this is:&apos;, this);
+  }
+  render() {
+    return (
+      &lt;button onClick={this.handleClick}&gt;
+        Click me
+      &lt;/button&gt;
+    );
+  }
+}
+</code></pre></li>
+</ol>
+
       
     </div>
     
