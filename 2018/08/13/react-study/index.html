@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="安装npm install -g create-react-app   create-react-app my-app cd my-app npm start">
+<meta name="description" content="安装npm install -g create-react-app create-react-app my-app cd my-app npm start">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="React 学习笔记">
 <meta property="og:url" content="http://yaliixxg.github.io/2018/08/13/react-study/index.html">
 <meta property="og:site_name" content="挖坑埋神经病">
-<meta property="og:description" content="安装npm install -g create-react-app   create-react-app my-app cd my-app npm start">
+<meta property="og:description" content="安装npm install -g create-react-app create-react-app my-app cd my-app npm start">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-15T01:10:00.269Z">
+<meta property="og:updated_time" content="2018-08-21T09:08:02.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 学习笔记">
-<meta name="twitter:description" content="安装npm install -g create-react-app   create-react-app my-app cd my-app npm start">
+<meta name="twitter:description" content="安装npm install -g create-react-app create-react-app my-app cd my-app npm start">
 
 
 
@@ -364,34 +364,34 @@
       
 
       
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g create-react-app  
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g create-react-app
 create-react-app my-app
 cd my-app
 npm start
-</code></pre><a id="more"></a>  
+</code></pre><a id="more"></a>
 <h2 id="项目文件夹结构分析"><a href="#项目文件夹结构分析" class="headerlink" title="项目文件夹结构分析"></a>项目文件夹结构分析</h2><ul>
-<li>package.json:这个文件是管理下载的依赖包,在项目中经常用到的是”react”库，“react-dom”（将jsx语法渲染到dom中）在项目中最重要的命令是“start”启动项目，”bulid”的作用就是将项目打包。  </li>
-<li>public文件夹  <ul>
-<li>index.html:项目的入口文件，引用了第三方类库啊，还可以引入cdn。<code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>是项目的总容器，所有的内容存储在这个容器中。这个容器有且只能有一个。  </li>
-<li>favicon.ico:是浏览器tab上图标，也是这个项目的一个标志，也可以说是代表一个公司的标志。可以替换。</li>
+<li>package.json:这个文件是管理下载的依赖包,在项目中经常用到的是”react”库，“react-dom”（将 jsx 语法渲染到 dom 中）在项目中最重要的命令是“start”启动项目，”bulid”的作用就是将项目打包。</li>
+<li>public 文件夹<ul>
+<li>index.html:项目的入口文件，引用了第三方类库啊，还可以引入 cdn。<code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>是项目的总容器，所有的内容存储在这个容器中。这个容器有且只能有一个。</li>
+<li>favicon.ico:是浏览器 tab 上图标，也是这个项目的一个标志，也可以说是代表一个公司的标志。可以替换。</li>
 </ul>
 </li>
-<li>src文件夹  <ul>
-<li>index.js:存放的是这个项目的核心内容，也就是我们的主要工作区域。其中，index.js文件是和index.html进行关联的文件的唯一接口。  ReactDOM.render()的作用是将<app>的内容渲染到根“root”中去。document.getElementById(‘root’)中的”root”便是index.html中的”root”了，<app>便是引用页面内容了。在这里，<app>也可以写一些内容(结构,样式,逻辑)是整个项目的根组件，比如:<code>ReactDOM.render(&lt;p &gt;Hello World&lt;/p&gt;, document.getElementById(&#39;root&#39;))</code>;能够引用<app>的原因是文档内容的头部，有<code>import App from &#39;./App&#39;</code>;内容，就是为了将App.js的内容引入到index.js文件中。  </app></app></app></app></li>
-<li>App.js:该类是继承react提供的component，<code>export default App;</code>是为了将App公开，index.js才能够引用。App.js继承了component的话，必须使用render进行渲染。return的内容是类似于html结构的内容，就是<code>jsx</code>，jsx语法是react的主要语法。内部的div的className是为了区分html语法的一个类名，这个是div的样式引用。在这个文件中，只能用一个div容器，如果在div的同级目录添加别的内容，便会报错。 </li>
+<li>src 文件夹<ul>
+<li>index.js:存放的是这个项目的核心内容，也就是我们的主要工作区域。其中，index.js 文件是和 index.html 进行关联的文件的唯一接口。 ReactDOM.render()的作用是将<app>的内容渲染到根“root”中去。document.getElementById(‘root’)中的”root”便是 index.html 中的”root”了，<app>便是引用页面内容了。在这里，<app>也可以写一些内容(结构,样式,逻辑)是整个项目的根组件，比如:<code>ReactDOM.render(&lt;p &gt;Hello World&lt;/p&gt;, document.getElementById(&#39;root&#39;))</code>;能够引用<app>的原因是文档内容的头部，有<code>import App from &#39;./App&#39;</code>;内容，就是为了将 App.js 的内容引入到 index.js 文件中。</app></app></app></app></li>
+<li>App.js:该类是继承 react 提供的 component，<code>export default App;</code>是为了将 App 公开，index.js 才能够引用。App.js 继承了 component 的话，必须使用 render 进行渲染。return 的内容是类似于 html 结构的内容，就是<code>jsx</code>，jsx 语法是 react 的主要语法。内部的 div 的 className 是为了区分 html 语法的一个类名，这个是 div 的样式引用。在这个文件中，只能用一个 div 容器，如果在 div 的同级目录添加别的内容，便会报错。</li>
 </ul>
 </li>
 </ul>
 <h2 id="定义组件（函数、类）"><a href="#定义组件（函数、类）" class="headerlink" title="定义组件（函数、类）"></a>定义组件（函数、类）</h2><blockquote>
-<p>组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的React元素。</p>
+<p>组件从概念上看就像是函数，它可以接收任意的输入值（称之为“props”），并返回一个需要在页面上展示的 React 元素。</p>
 </blockquote>
 <ul>
-<li>函数定义组件  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props)&#123;</span><br><span class="line">      return &lt;h1&gt;Hello,&#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>函数定义组件</li>
 </ul>
-<p>该函数是一个React组件，它接收一个”props”对象并返回了一个React元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Welcome(props)&#123;</span><br><span class="line">      return &lt;h1&gt;Hello,&#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>该函数是一个 React 组件，它接收一个”props”对象并返回了一个 React 元素。</p>
 <ul>
-<li><p>类定义组件  </p>
+<li><p>类定义组件</p>
 <pre><code>class Welcome extends Component{
   render(){
     rturn return &lt;h1&gt;Hello,{this.props.name}&lt;/h1&gt;;
@@ -400,15 +400,15 @@ npm start
 </code></pre></li>
 </ul>
 <ul>
-<li>如何使用这个组件？<br>在需要这个组件的地方，必须定义或引入它。并且<welcome>，如果要用到上述组件定义的name属性，即<welcome name="Indge">来进行传值。<br>组件名称必须是以大写字母开头。  </welcome></welcome></li>
+<li>如何使用这个组件？<br>在需要这个组件的地方，必须定义或引入它。并且<welcome>，如果要用到上述组件定义的 name 属性，即<welcome name="Indge">来进行传值。<br>组件名称必须是以大写字母开头。</welcome></welcome></li>
 </ul>
 <blockquote>
-<p>Props的只读性:所有的React组件必须像纯函数那样使用它们的props。   </p>
+<p>Props 的只读性:所有的 React 组件必须像纯函数那样使用它们的 props。</p>
 </blockquote>
 <h2 id="State-amp-生命周期"><a href="#State-amp-生命周期" class="headerlink" title="State &amp; 生命周期"></a>State &amp; 生命周期</h2><blockquote>
-<p>这种只在使用类定义组件时可以使用其它特性。例如局部状态，生命周期钩子。  </p>
+<p>这种只在使用类定义组件时可以使用其它特性。例如局部状态，生命周期钩子。</p>
 </blockquote>
-<h3 id="为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写date-…-）"><a href="#为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写date-…-）" class="headerlink" title="为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写date={…}）"></a>为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写date={…}）</h3><pre><code>class Demo extends Component{
+<h3 id="为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写-date-…-）"><a href="#为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写-date-…-）" class="headerlink" title="为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写 date={…}）"></a>为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写 date={…}）</h3><pre><code>class Demo extends Component{
     constructor(props){  //第二步：添加一个类构造函数来初始化状态 this.state
         super(props)     //注意：super(props)的目的，在constructor中可以使用this.props
         this.state = {date:new Date()}
@@ -435,43 +435,31 @@ npm start
           &lt;/div&gt;
         )
     }
-}  
+}
 </code></pre><h3 id="setState-的正确使用"><a href="#setState-的正确使用" class="headerlink" title="setState 的正确使用"></a>setState 的正确使用</h3><ol>
-<li><p>不要直接更新状态。<code>this.state.comment = &#39;Hello&#39;;</code>  此代码不会重新渲染组件。应使用setState()来更新组件，<code>this.setState({comment: &#39;Hello&#39;});</code>，构造函数是唯一能够初始化 this.state 的地方。  </p>
+<li><p>不要直接更新状态。<code>this.state.comment = &#39;Hello&#39;;</code> 此代码不会重新渲染组件。应使用 setState()来更新组件，<code>this.setState({comment: &#39;Hello&#39;});</code>，构造函数是唯一能够初始化 this.state 的地方。</p>
 </li>
-<li><p>状态更新可能是异步的，this.props和this.state是异步更新的，不能直接用来计算  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Wrong</span><br><span class="line">this.setState(&#123;</span><br><span class="line">  counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<li><p>状态更新可能是异步的，this.props 和 this.state 是异步更新的，不能直接用来计算</p>
 </li>
 </ol>
-<p>请使用第二种形式的 setState() 来接受一个函数而不是一个对象。 该函数将接收先前的状态作为第一个参数，将此次更新被应用时的props做为第二个参数。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// Wrong</span><br><span class="line">this.setState(&#123;</span><br><span class="line">  counter: this.state.counter + this.props.increment,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>请使用第二种形式的 setState() 来接受一个函数而不是一个对象。 该函数将接收先前的状态作为第一个参数，将此次更新被应用时的 props 做为第二个参数。</p>
 <pre><code>// Correct
 this.setState((prevState, props) =&gt; ({
   counter: prevState.counter + props.increment
 }));
 </code></pre><ol start="3">
-<li>状态更新合并  </li>
+<li>状态更新合并</li>
 </ol>
-<p>你的状态可能包含一些独立的变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.state = &#123;</span><br><span class="line">    posts: [],</span><br><span class="line">    comments: []</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你的状态可能包含一些独立的变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">constructor(props) &#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.state = &#123;</span><br><span class="line">    posts: [],</span><br><span class="line">    comments: []</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>你可以调用 setState() 独立地更新它们：</p>
-<pre><code>componentDidMount() {
-  fetchPosts().then(response =&gt; {
-    this.setState({
-      posts: response.posts
-    });
-  });
-
-  fetchComments().then(response =&gt; {
-    this.setState({
-      comments: response.comments
-    });
-  });
-}
-</code></pre><h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><blockquote>
-<p>由于类的方法默认不会绑定this，因此在调用的时候如果忘记绑定，this的值将会是undefined。<br>通常如果不是直接调用，应该为方法绑定this。绑定方式有以下几种：  </p>
-<ol>
-<li>在构造函数中使用bind绑定this  </li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">  fetchPosts().then(response =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      posts: response.posts</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  fetchComments().then(response =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      comments: response.comments</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h2><blockquote>
+<p>由于类的方法默认不会绑定 this，因此在调用的时候如果忘记绑定，this 的值将会是 undefined。<br>通常如果不是直接调用，应该为方法绑定 this。绑定方式有以下几种：</p>
 </blockquote>
+<ol>
+<li><p>在构造函数中使用 bind 绑定 this</p>
 <pre><code>class Button extends React.Component {
 constructor(props) {
     super(props);
@@ -488,8 +476,8 @@ constructor(props) {
     );
   }
 }
-</code></pre><ol start="2">
-<li><p>在调用的时候使用bind绑定this   </p>
+</code></pre></li>
+<li><p>在调用的时候使用 bind 绑定 this</p>
 <pre><code>class Button extends React.Component {
   handleClick(){
     console.log(&apos;this is:&apos;, this);
@@ -503,7 +491,7 @@ constructor(props) {
   }
 }
 </code></pre></li>
-<li><p>在调用的时候使用箭头函数绑定this  </p>
+<li><p>在调用的时候使用箭头函数绑定 this</p>
 <pre><code>class Button extends React.Component {
   handleClick(){
     console.log(&apos;this is:&apos;, this);
@@ -517,7 +505,7 @@ constructor(props) {
   }
 }
 </code></pre></li>
-<li><p>使用属性初始化器语法绑定this(实验性)  </p>
+<li><p>使用属性初始化器语法绑定 this(实验性)</p>
 <pre><code>class Button extends React.Component {
   handleClick=()=&gt;{
     console.log(&apos;this is:&apos;, this);
@@ -532,6 +520,63 @@ constructor(props) {
 }
 </code></pre></li>
 </ol>
+<h2 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h2><ol>
+<li><p>包含三目运算符的条件渲染<br>例子：</p>
+<pre><code>class HelloWord extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            show: false
+        }
+    }
+
+    // 渲染函数，this 指向实例本身
+    render() {
+        let display = this.display.bind(this)
+        return &lt;div&gt;
+            {/* 这种方法省略了 this 绑定的过程 */}
+            &lt;button onClick={display}&gt;{this.state.show ? &apos;点击隐藏&apos; : &apos;点击显示&apos;}&lt;/button&gt;
+            {
+                this.state.show
+                    ?
+                    &lt;p&gt;显示出来啦&lt;/p&gt;
+                    :
+                    null
+            }
+        &lt;/div&gt;
+    }
+
+    display() {
+        this.setState({
+            show: !this.state.show
+        })
+    }
+}
+</code></pre></li>
+<li><p>与（&amp;&amp;）运算符的条件渲染</p>
+<pre><code>function Mailbox(props) {
+  const unreadMessages = props.unreadMessages;
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Hello!&lt;/h1&gt;
+      {unreadMessages.length &gt; 0 &amp;&amp;
+        &lt;h2&gt;
+          You have {unreadMessages.length} unread messages.
+        &lt;/h2&gt;
+      }
+    &lt;/div&gt;
+  );
+}
+
+const messages = [&apos;React&apos;, &apos;Re: React&apos;, &apos;Re:Re: React&apos;];
+ReactDOM.render(
+  &lt;Mailbox unreadMessages={messages} /&gt;,
+  document.getElementById(&apos;root&apos;)
+);
+</code></pre></li>
+</ol>
+<p>之所以能这样做，是因为在 JavaScript 中，<code>true &amp;&amp; expression</code> 总是返回 <code>expression</code>，而 <code>false &amp;&amp; expression</code> 总是返回 <code>false。</code></p>
+<p>因此，如果条件是 true，&amp;&amp; 右侧的元素就会被渲染，如果是 false，React 会忽略并跳过它。</p>
 
       
     </div>
@@ -714,7 +759,7 @@ constructor(props) {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目文件夹结构分析"><span class="nav-number">2.</span> <span class="nav-text">项目文件夹结构分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组件（函数、类）"><span class="nav-number">3.</span> <span class="nav-text">定义组件（函数、类）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#State-amp-生命周期"><span class="nav-number">4.</span> <span class="nav-text">State &amp; 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写date-…-）"><span class="nav-number">4.1.</span> <span class="nav-text">为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写date={…}）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState-的正确使用"><span class="nav-number">4.2.</span> <span class="nav-text">setState 的正确使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">5.</span> <span class="nav-text">事件绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目文件夹结构分析"><span class="nav-number">2.</span> <span class="nav-text">项目文件夹结构分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义组件（函数、类）"><span class="nav-number">3.</span> <span class="nav-text">定义组件（函数、类）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#State-amp-生命周期"><span class="nav-number">4.</span> <span class="nav-text">State &amp; 生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为一个类添加局部状态和生命周期-（利用局部状态，则不需要在组件引用时再写-date-…-）"><span class="nav-number">4.1.</span> <span class="nav-text">为一个类添加局部状态和生命周期 （利用局部状态，则不需要在组件引用时再写 date={…}）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setState-的正确使用"><span class="nav-number">4.2.</span> <span class="nav-text">setState 的正确使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件绑定"><span class="nav-number">5.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#条件渲染"><span class="nav-number">6.</span> <span class="nav-text">条件渲染</span></a></li></ol></div>
             
 
           </div>
