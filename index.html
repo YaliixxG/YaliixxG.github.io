@@ -271,6 +271,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/08/22/react-native-bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YaliixxG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挖坑埋神经病">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/22/react-native-bug/" itemprop="url">react-native Bug问题汇总</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-22T16:20:57+08:00">
+                2018-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="react-native-环境构建"><a href="#react-native-环境构建" class="headerlink" title="react-native 环境构建"></a>react-native 环境构建</h2><p><a href="https://reactnative.cn/docs/getting-started.html" target="_blank" rel="noopener">点击前往 react-native 环境构建</a></p>
+<h2 id="react-native-bug"><a href="#react-native-bug" class="headerlink" title="react-native bug"></a>react-native bug</h2><ol>
+<li>端口号 8081 被占用<br><code>修改端口号：react-native start --port 9999</code><br><code>修改模拟器地址： ip+9999，例如：192.165.1.1:9999</code></li>
+<li>adb 版本不一致：adb server version (31) doesn’t match this client (36); killing…<br><code>复制sdk里面的adb.exe改名nox_adb.exe,将nox/bin里的nox_adb.ex替换</code></li>
+<li>git 上拉去 react native,react-native start 运行报错<br><code>cd android</code><br><code>gradlew clean</code><pre><code>&lt;!--more--&gt;
+</code></pre></li>
+<li>no connect devices(没有链接设备)<br><code>adb devices(这个命令是查看是否连接设备)</code><br><code>adb conncet 127.0.0.1:62001(手动连接设备)</code></li>
+<li>INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES(模拟器上已经安装了此 APP)<br><code>卸载重装即可</code></li>
+<li>unable to resolve module ‘ACCESSIBILITYINFO’ （react-native 版本问题）<br><code>切换版本 react-native@0.55.4 react-native-cli@1.2.0</code></li>
+<li>plugin 0 specified in xxx （babel-preset-react-native 的包文件错误）<br><code>npm install --save -dev babel-preset-react-native@2.1.0</code></li>
+<li>javascript 与 native 版本不一致报错<br><code>npm install react-native@要求的版本号</code> 然后卸载老版本即可</li>
+<li>启动页白屏<br>关闭程序，再重新打开一次</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/08/13/react-study/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1593,154 +1747,6 @@ npm start
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/07/12/h/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YaliixxG">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/me.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="挖坑埋神经病">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/12/h/" itemprop="url">《图解HTTP》学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-12T11:49:00+08:00">
-                2018-07-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/web/" itemprop="url" rel="index">
-                    <span itemprop="name">web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="坚持-｡◕ˇ∀ˇ◕-HTTP-WebSocket"><a href="#坚持-｡◕ˇ∀ˇ◕-HTTP-WebSocket" class="headerlink" title="坚持 (｡◕ˇ∀ˇ◕) ,HTTP WebSocket"></a>坚持 (｡◕ˇ∀ˇ◕) ,HTTP WebSocket</h3><h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>超文本传输协议（超文本转移协议）</p>
-<h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p>互联网相关的各类协议族的总称，协议存在各式各样的内容。从电缆的规格到IP地址的选定方法、双方建立通信的顺序，以及web页面显示需要处理的步骤，等等。<br>按层次分别为：应用层、传输层、网络层、数据链路层。  </p>
-<h4 id="从客户端发送请求到服务端接收请求流程如图："><a href="#从客户端发送请求到服务端接收请求流程如图：" class="headerlink" title="从客户端发送请求到服务端接收请求流程如图："></a>从客户端发送请求到服务端接收请求流程如图：</h4><p><img src="/2018/07/12/h/h2.png" alt="h2"><br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/12/h/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1795,7 +1801,7 @@ npm start
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1817,7 +1823,7 @@ npm start
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

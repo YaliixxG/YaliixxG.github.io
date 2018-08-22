@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-08-21T09:08:02.504Z</updated>
+  <updated>2018-08-22T08:32:33.197Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>react-native Bug问题汇总</title>
+    <link href="http://yaliixxg.github.io/2018/08/22/react-native-bug/"/>
+    <id>http://yaliixxg.github.io/2018/08/22/react-native-bug/</id>
+    <published>2018-08-22T08:20:57.000Z</published>
+    <updated>2018-08-22T08:32:33.197Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="react-native-环境构建"><a href="#react-native-环境构建" class="headerlink" title="react-native 环境构建"></a>react-native 环境构建</h2><p><a href="https://reactnative.cn/docs/getting-started.html" target="_blank" rel="noopener">点击前往 react-native 环境构建</a></p><h2 id="react-native-bug"><a href="#react-native-bug" class="headerlink" title="react-native bug"></a>react-native bug</h2><ol><li>端口号 8081 被占用<br><code>修改端口号：react-native start --port 9999</code><br><code>修改模拟器地址： ip+9999，例如：192.165.1.1:9999</code></li><li>adb 版本不一致：adb server version (31) doesn’t match this client (36); killing…<br><code>复制sdk里面的adb.exe改名nox_adb.exe,将nox/bin里的nox_adb.ex替换</code></li><li>git 上拉去 react native,react-native start 运行报错<br><code>cd android</code><br><code>gradlew clean</code><pre><code>&lt;!--more--&gt;</code></pre></li><li>no connect devices(没有链接设备)<br><code>adb devices(这个命令是查看是否连接设备)</code><br><code>adb conncet 127.0.0.1:62001(手动连接设备)</code></li><li>INSTALL_PARSE_FAILED_INCONSISTENT_CERTIFICATES(模拟器上已经安装了此 APP)<br><code>卸载重装即可</code></li><li>unable to resolve module ‘ACCESSIBILITYINFO’ （react-native 版本问题）<br><code>切换版本 react-native@0.55.4 react-native-cli@1.2.0</code></li><li>plugin 0 specified in xxx （babel-preset-react-native 的包文件错误）<br><code>npm install --save -dev babel-preset-react-native@2.1.0</code></li><li>javascript 与 native 版本不一致报错<br><code>npm install react-native@要求的版本号</code> 然后卸载老版本即可</li><li>启动页白屏<br>关闭程序，再重新打开一次</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;react-native-环境构建&quot;&gt;&lt;a href=&quot;#react-native-环境构建&quot; class=&quot;headerlink&quot; title=&quot;react-native 环境构建&quot;&gt;&lt;/a&gt;react-native 环境构建&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;h
+      
+    
+    </summary>
+    
+      <category term="web" scheme="http://yaliixxg.github.io/categories/web/"/>
+    
+    
+      <category term="react-native bug 修复 问题" scheme="http://yaliixxg.github.io/tags/react-native-bug-%E4%BF%AE%E5%A4%8D-%E9%97%AE%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>React 学习笔记</title>
