@@ -9,16 +9,17 @@ install:
 # - npm install -g gulp
 
 script:
-    - hexo g
+    - hexo clean
+  - hexo generate
 
 after_script:
     - cd ./public
     - git init
-    - git config user.name "ganli"
-    - git config user.email "gl09025@gmail.com"
+    - git config user.name "${name}"
+    - git config user.email "${email}"
     - git add .
     - git commit -m "Update docs"
-    - git push --force --quiet "https://${blog}@${GH_REF}" master:master
+    - git push --force --quiet "https://${TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
@@ -26,4 +27,4 @@ branches:
         - blog-resource
 env:
     global:
-        - GH_REF: github.com/gl09025/hexo-blog.git
+        - GH_REF: https://github.com/YaliixxG/YaliixxG.github.io.git
