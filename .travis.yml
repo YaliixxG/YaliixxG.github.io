@@ -27,4 +27,4 @@ branches:
         - blog-resource
 env:
     global:
-        - GH_REF: https://github.com/YaliixxG/YaliixxG.github.io.git
+        - GH_REF: github.com/YaliixxG/YaliixxG.github.io.git
