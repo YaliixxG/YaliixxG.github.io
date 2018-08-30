@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-08-22T08:32:33.197Z</updated>
+  <updated>2018-08-30T06:06:35.240Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ooo</title>
+    <link href="http://yaliixxg.github.io/2018/08/30/ooo/"/>
+    <id>http://yaliixxg.github.io/2018/08/30/ooo/</id>
+    <published>2018-08-30T06:06:09.000Z</published>
+    <updated>2018-08-30T06:06:35.240Z</updated>
+    
+    <content type="html"><![CDATA[<p>aaaaaaaaaaa8888888888888888888888888</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;aaaaaaaaaaa8888888888888888888888888&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="aaa" scheme="http://yaliixxg.github.io/tags/aaa/"/>
+    
+  </entry>
   
   <entry>
     <title>react-native Bug问题汇总</title>
@@ -493,32 +517,6 @@ npm start
     
     
       <category term="世界杯" scheme="http://yaliixxg.github.io/tags/%E4%B8%96%E7%95%8C%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>First</title>
-    <link href="http://yaliixxg.github.io/2018/06/12/20180612/"/>
-    <id>http://yaliixxg.github.io/2018/06/12/20180612/</id>
-    <published>2018-06-12T09:58:45.000Z</published>
-    <updated>2018-06-14T07:20:39.205Z</updated>
-    
-    <content type="html"><![CDATA[<p>豆豆，哦豆豆，豆豆豆豆</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;豆豆，哦豆豆，豆豆豆豆&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="哔哔叨叨" scheme="http://yaliixxg.github.io/categories/%E5%93%94%E5%93%94%E5%8F%A8%E5%8F%A8/"/>
-    
-    
-      <category term="自我介绍" scheme="http://yaliixxg.github.io/tags/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/"/>
     
   </entry>
   
