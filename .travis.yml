@@ -24,7 +24,7 @@ after_script:
 
 branches:
     only:
-        - blog-resource
+        - blog
 env:
     global:
         - GH_REF: github.com/YaliixxG/YaliixxG.github.io.git
