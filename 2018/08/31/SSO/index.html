@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="单点登录 SSO 前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="挖坑埋神经病" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="什么是单点登录单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统 SSO 一般都需要一个独立的认证中心（passport），子系统的登录均得通过 passport，子系统本身将不参与登录操作，当一个系统成功登录以后，passport 将会颁发一个令牌给各个子系统，">
+<meta name="keywords" content="单点登录 SSO 前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSO 单点登录">
+<meta property="og:url" content="http://yaliixxg.github.io/2018/08/31/SSO/index.html">
+<meta property="og:site_name" content="挖坑埋神经病">
+<meta property="og:description" content="什么是单点登录单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统 SSO 一般都需要一个独立的认证中心（passport），子系统的登录均得通过 passport，子系统本身将不参与登录操作，当一个系统成功登录以后，passport 将会颁发一个令牌给各个子系统，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/15/1653c606dca33f74?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/8/15/1653c66a94ddeeb2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2018-08-31T03:43:31.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSO 单点登录">
+<meta name="twitter:description" content="什么是单点登录单点登录（Single Sign On），简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统 SSO 一般都需要一个独立的认证中心（passport），子系统的登录均得通过 passport，子系统本身将不参与登录操作，当一个系统成功登录以后，passport 将会颁发一个令牌给各个子系统，">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/8/15/1653c606dca33f74?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yaliixxg.github.io/2018/08/31/SSO/"/>
+
+
+
+
+
+  <title>SSO 单点登录 | 挖坑埋神经病</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">挖坑埋神经病</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            message
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yaliixxg.github.io/2018/08/31/SSO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YaliixxG">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="挖坑埋神经病">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SSO 单点登录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-31T11:19:09+08:00">
+                2018-08-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web/" itemprop="url" rel="index">
+                    <span itemprop="name">web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是单点登录"><a href="#什么是单点登录" class="headerlink" title="什么是单点登录"></a>什么是单点登录</h2><p><strong>单点登录（Single Sign On）</strong>，简称为 SSO，是目前比较流行的企业业务整合的解决方案之一。SSO 的定义是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统</p>
+<p>SSO 一般都需要一个独立的认证中心（passport），子系统的登录均得通过 passport，子系统本身将不参与登录操作，当一个系统成功登录以后，passport 将会颁发一个令牌给各个子系统，子系统可以拿着令牌会获取各自的受保护资源，为了减少频繁认证，各个子系统在被 passport 授权以后，会建立一个局部会话，在一定时间内可以无需再次向 passport 发起认证。</p>
+<blockquote>
+<p>举个例子，比如淘宝、天猫都属于阿里旗下的产品，当用户登录淘宝后，再打开天猫，系统便自动帮用户登录了天猫，这种现象背后就是用单点登录实现的</p>
+</blockquote>
+<h3 id="单点登录流程"><a href="#单点登录流程" class="headerlink" title="单点登录流程"></a>单点登录流程</h3><h4 id="1-登录"><a href="#1-登录" class="headerlink" title="1.登录"></a>1.登录</h4><p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653c606dca33f74?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="alt"></p>
+<ul>
+<li>用户访问系统 1 的受保护资源，系统 1 发现用户未登录，跳转至 sso 认证中心，并将自己的地址作为参数<br>sso 认证中心发现用户未登录，将用户引导至登录页面</li>
+<li>用户输入用户名密码提交登录申请</li>
+<li>sso 认证中心校验用户信息，创建用户与 sso 认证中心之间的会话，称为全局会话，同时创建授权令牌</li>
+<li>sso 认证中心带着令牌跳转会最初的请求地址（系统 1）</li>
+<li>系统 1 拿到令牌，去 sso 认证中心校验令牌是否有效</li>
+<li>sso 认证中心校验令牌，返回有效，注册系统 1</li>
+<li>系统 1 使用该令牌创建与用户的会话，称为局部会话，返回受保护资源</li>
+<li>用户访问系统 2 的受保护资源</li>
+<li>系统 2 发现用户未登录，跳转至 sso 认证中心，并将自己的地址作为参数</li>
+<li>sso 认证中心发现用户已登录，跳转回系统 2 的地址，并附上令牌</li>
+<li>系统 2 拿到令牌，去 sso 认证中心校验令牌是否有效</li>
+<li>sso 认证中心校验令牌，返回有效，注册系统 2</li>
+<li>系统 2 使用该令牌创建与用户的局部会话，返回受保护资源</li>
+</ul>
+<p>用户登录成功之后，会与 sso 认证中心及各个子系统建立会话，用户与 sso 认证中心建立的会话称为全局会话，用户与各个子系统建立的会话称为局部会话，局部会话建立之后，用户访问子系统受保护资源将不再通过 sso 认证中心，全局会话与局部会话有如下约束关系</p>
+<ul>
+<li>局部会话存在，全局会话一定存在</li>
+<li>全局会话存在，局部会话不一定存在</li>
+<li>全局会话销毁，局部会话必须销毁</li>
+</ul>
+<h4 id="2-注销"><a href="#2-注销" class="headerlink" title="2.注销"></a>2.注销</h4><p><img src="https://user-gold-cdn.xitu.io/2018/8/15/1653c66a94ddeeb2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="alt"></p>
+<p>sso 认证中心一直监听全局会话的状态，一旦全局会话销毁，监听器将通知所有注册系统执行注销操作。</p>
+<ul>
+<li>用户向系统 1 发起注销请求</li>
+<li>系统 1 根据用户与系统 1 建立的会话 id 拿到令牌，向 sso 认证中心发起注销请求</li>
+<li>sso 认证中心校验令牌有效，销毁全局会话，同时取出所有用此令牌注册的系统地址</li>
+<li>sso 认证中心向所有注册系统发起注销请求</li>
+<li>各注册系统接收 sso 认证中心的注销请求，销毁局部会话</li>
+<li>sso 认证中心引导用户至登录页面</li>
+</ul>
+<h3 id="单点登录关于前端的部分"><a href="#单点登录关于前端的部分" class="headerlink" title="单点登录关于前端的部分"></a>单点登录关于前端的部分</h3><p>此代码采用<code>OAuth2</code>。关于<code>token</code>存储问题，参考了网上许多教程，大部分都是将<code>token</code>存储在<code>cookie</code>中，然后将<code>cookie</code>设为顶级域来解决跨域问题，但我司业务需求是某些产品顶级域也各不相同。故实现思路是将<code>token</code>存储在<code>localStorage</code>中，然后通过 H5 的新属性<code>postMessage</code>来实现跨域共享</p>
+<blockquote>
+<p>OAuth（开放授权）是一个开放标准，允许用户让第三方应用访问该用户在某一网站上存储的私密的资源（如照片，视频，联系人列表），而无需将用户名和密码提供给第三方应用。</p>
+</blockquote>
+<blockquote>
+<p>通俗说，OAuth 就是一种授权的协议，只要授权方和被授权方遵守这个协议去写代码提供服务，那双方就是实现了 OAuth 模式。</p>
+</blockquote>
+<blockquote>
+<p>详细说就是，OAuth 在”客户端”与”服务提供商”之间，设置了一个授权层（authorization layer）。”客户端”不能直接登录”服务提供商”，只能登录授权层，以此将用户与客户端区分开来。”客户端”登录授权层所用的令牌（token），与用户的密码不同。用户可以在登录的时候，指定授权层令牌的权限范围和有效期。”客户端”登录授权层以后，”服务提供商”根据令牌的权限范围和有效期，向”客户端”开放用户储存的资料。</p>
+</blockquote>
+<blockquote>
+<p>OAuth2 是 OAuth1.0 的下一个版本，OAuth2 关注客户端开发者的简易性，同时为 Web 应用，桌面应用和手机，和起居室设备提供专门的认证流程。原先的 OAuth，会发行一个 有效期非常长的 token(典型的是一年有效期或者无有效期限制)，在 OAuth 2.0 中，server 将发行一个短有效期的 access token 和长生命期的 refresh token。这将允许客户端无需用户再次操作而获取一个新的 access token，并且也限制了 access token 的有效期。</p>
+</blockquote>
+<p>实现思路：当用户访问公司某系统(如 product.html)时，在 product 中会首先加载一个 iframe，iframe 中可以获取存储在 localStorage 中的 token，如果没有取到或 token 过期，iframe 中内部将把用户将重定向到登录页，用户在此页面登录，仍将去认证系统取得 token 并保存在 iframe 页面的 localStorage</p>
+<pre><code>&lt;!--product.html--&gt;
+&lt;head&gt;
+    &lt;script src=&quot;auth_1.0.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;产品页面&lt;/h2&gt;
+    &lt;a onClick=&quot;login()&quot; id=&quot;login&quot;&gt;登录&lt;/a&gt;
+    &lt;h3 id=&quot;txt&quot;&gt;&lt;/h3&gt;
+&lt;/body&gt;
+&lt;script&gt;
+var opts = {
+    origin: &apos;http://localhost:8080&apos;,
+    login_path: &apos;/login.html&apos;,
+    path: &apos;/cross_domain.html&apos;
+}
+// 加载iframe,将src值为cross_domain.html的iframe加载到本页
+var auth = new ssoAuth(opts);
+function getTokenCallback(data) {
+    //如果没有token则跳到登录页
+    if(!data.value){
+        auth.doWebLogin();
+    }
+    //如果有token,直接在页面显示，然后做其它操作
+    document.getElementById(&apos;txt&apos;).innerText = &apos;token=&apos; + data.value;
+}
+// 获取存储在名为cross_domain的iframe中的token
+auth.getToken(getTokenCallback);
+&lt;/script&gt;
+</code></pre><blockquote>
+<p>讲解：在 product.html 中实例化了 ssoAuth 后，此页面便将 iframe 引入了当前页，名为 opts.path 的值，即 cross_domain.html。auth.getToken()是获取此 iframe 页面中的 localStorage 值。</p>
+</blockquote>
+<pre><code>//auth_1.0.0.js
+function ssoAuth(opts) {
+    this._origin = opts.origin,
+    this._iframe_path = opts.path,
+    this._iframe = null,
+    this._iframe_ready = false,
+    this._queue = [],
+    this._auth = {},
+    this._access_token_msg = { type: &quot;get&quot;, key: &quot;access_token&quot; },
+    this._callback = undefined,
+    that = this;
+
+    //判断是否支持postMessage及localStorage
+var supported = (function () {
+        try {
+            return window.postMessage &amp;&amp; window.JSON &amp;&amp; &apos;localStorage&apos; in window &amp;&amp; window[&apos;localStorage&apos;] !== null;
+        } catch (e) {
+            return false;
+        }
+    })();
+
+    _iframeLoaded = function () {
+        that._iframe_ready = true
+        if (that._queue.length) {
+            for (var i = 0, len = that._queue.length; i &lt; len; i++) {
+                _sendMessage(that._queue[i]);
+            }
+            that._queue = [];
+        }
+    }
+
+    _sendMessage = function (data) {
+        // 通过contentWindow属性，脚本可以访问iframe元素所包含的HTML页面的window对象。
+        that._iframe.contentWindow.postMessage(JSON.stringify(data), that._origin);
+    }
+
+    //获取token,但因为此时iframe还没有加载完成，先将消息存储在队列_queue中
+    this._auth.getToken = function (callback) {
+        that._callback = callback
+        if (that._access_token_msg &amp;&amp; that._iframe_ready) {
+            //当iframe加载完成，给iframe所在的页面发送消息
+            _sendMessage(that._access_token_msg);
+        } else {
+            that._queue.push(that._access_token_msg);
+        }
+    }
+
+    var _handleMessage = function (event) {
+        if (event.origin === that._origin) {
+            var data = JSON.parse(event.data);
+            if (data.error) {
+                console.error(event.data)
+                that._callback({ value: null });
+                return;
+            }
+            if (that._callback &amp;&amp; typeof that._callback === &apos;function&apos;) {
+                that._callback(data);
+            } else {
+                console.error(&quot;callback is null or not a function, please &quot;);
+            }
+        }
+    }
+
+    this._auth.doWebLogin = function () {
+        window.location.href = opts.origin + opts.login_path + &quot;?redirect_url=&quot; + window.location.href
+    }
+    //初始化了一个iframe,并追加到父页面的底部
+    if (!this._iframe &amp;&amp; supported) {
+        this._iframe = document.createElement(&quot;iframe&quot;);
+        this._iframe.style.cssText = &quot;position:absolute;width:1px;height:1px;left:-9999px;&quot;;
+        document.body.appendChild(this._iframe);
+
+        if (window.addEventListener) {
+            this._iframe.addEventListener(&quot;load&quot;, function () {
+                _iframeLoaded();
+            }, false);
+            window.addEventListener(&quot;message&quot;, function (event) {
+                _handleMessage(event)
+            }, false);
+        } else if (this._iframe.attachEvent) {
+            this._iframe.attachEvent(&quot;onload&quot;, function () {
+                _iframeLoaded();
+            }, false);
+            window.attachEvent(&quot;onmessage&quot;, function (event) {
+                _handleMessage(event)
+            });
+        }
+        this._iframe.src = this._origin + this._iframe_path;
+    }
+    return this._auth;
+}
+
+
+&lt;!--cross_domain.html--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    (function () {
+
+        //白名单
+        var whitelist = [&quot;localhost&quot;, &quot;127.0.0.1&quot;, &quot;^.*\.domain\.com&quot;];
+
+        function verifyOrigin(origin) {
+            var domain = origin.replace(/^https?:\/\/|:\d{1,4}$/g, &quot;&quot;).toLowerCase(),
+                i = 0,
+                len = whitelist.length;
+
+            while (i &lt; len) {
+                if (domain.match(new RegExp(whitelist[i]))) {
+                    return true;
+                }
+                i++;
+            }
+            return false;
+        }
+
+        function handleRequest(event) {
+            // 白名单较验
+            if (verifyOrigin(event.origin)) {
+                var request = JSON.parse(event.data);
+                if (request.type == &apos;get&apos;) {
+                    var idi = sessionStorage.getItem(&quot;idi&quot;);
+                    if (!idi) {
+                        // source:对发送消息的窗口对象的引用
+                        event.source.postMessage(JSON.stringify({ key: request.key, value: null }), event.origin);
+                        return;
+                    }
+                    value = JSON.parse(idi)[request.key];
+                    event.source.postMessage(JSON.stringify({ key: request.key, value: value }), event.origin);
+                } else {
+                    event.source.postMessage(JSON.stringify({ error: &quot;Not supported&quot;, error_description: &quot;Not supported message type&quot; }), event.origin);
+                }
+            }
+        }
+        // 接收iframe传来的消息
+        if (window.addEventListener) {
+            window.addEventListener(&quot;message&quot;, handleRequest, false);
+        } else if (window.attachEvent) {
+            window.attachEvent(&quot;onmessage&quot;, handleRequest);
+        }
+    })();
+&lt;/script&gt;
+
+&lt;!--login.html--&gt;
+&lt;head&gt;
+    &lt;script src=&quot;auth_1.0.0.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;input type=&quot;text&quot; placeholder=&quot;用户名&quot; id=&quot;user&quot;&gt;
+        &lt;input type=&quot;password&quot; placeholder=&quot;密码&quot; id=&quot;pwd&quot;&gt;
+    &lt;/form&gt;
+    &lt;button onClick=&quot;login()&quot;&gt;登 录&lt;/button&gt;
+&lt;/body&gt;
+&lt;script&gt;
+    function login() {
+        var name = document.getElementById(&apos;user&apos;)
+        var pwd = document.getElementById(&apos;pwd&apos;)
+
+        var expires_in = 7200
+        //假如这是登录成功后，后台开发人员返回的json数据
+        var res = {
+            access_token: &quot;xxxxx.yyyyy.zzzzz&quot;,
+            expires_at: expires_in * 1000 + new Date().getTime(),
+            refresh_token: &quot;yyyyyyyyyyyyyyyyyyyyyyyyyyyy&quot;
+        };
+        localStorage.setItem(&quot;idi&quot;, JSON.stringify(res))
+        //登录成功后再返回原页面
+        window.location.href = getQueryString(&quot;redirect_url&quot;)
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;);
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+&lt;/script&gt;
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/单点登录-SSO-前端/" rel="tag"># 单点登录 SSO 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/22/react-native-bug/" rel="next" title="react-native Bug问题汇总">
+                <i class="fa fa-chevron-left"></i> react-native Bug问题汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="YaliixxG" />
+            
+              <p class="site-author-name" itemprop="name">YaliixxG</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是单点登录"><span class="nav-number">1.</span> <span class="nav-text">什么是单点登录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单点登录流程"><span class="nav-number">1.1.</span> <span class="nav-text">单点登录流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-登录"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.登录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-注销"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.注销</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单点登录关于前端的部分"><span class="nav-number">1.2.</span> <span class="nav-text">单点登录关于前端的部分</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YaliixxG</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+本站访客数:<span id="busuanzi_value_site_uv"></span></span>
+</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript"
+color="240,128,128" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+</body>
+</html>
