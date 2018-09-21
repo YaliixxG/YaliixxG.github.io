@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="挖坑埋神经病">
 <meta property="og:description" content="Python 允许用r&amp;#39;&amp;#39;表示’’内部的字符串默认不转义。 Python 允许用&amp;#39;&amp;#39;&amp;#39;...&amp;#39;&amp;#39;&amp;#39;的格式表示多行内容。 and代表“并且”，or代表“或”，not代表“非” 空值：用None表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。 除法： /除法计算结果是浮点数，即使两个整数恰好整除，结果也是浮点数">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-20T09:49:40.077Z">
+<meta property="og:updated_time" content="2018-09-21T09:26:40.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 基础">
 <meta name="twitter:description" content="Python 允许用r&amp;#39;&amp;#39;表示’’内部的字符串默认不转义。 Python 允许用&amp;#39;&amp;#39;&amp;#39;...&amp;#39;&amp;#39;&amp;#39;的格式表示多行内容。 and代表“并且”，or代表“或”，not代表“非” 空值：用None表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。 除法： /除法计算结果是浮点数，即使两个整数恰好整除，结果也是浮点数">
@@ -372,7 +372,7 @@
 <li>除法：<ul>
 <li><code>/</code>除法计算结果是浮点数，即使两个整数恰好整除，结果也是浮点数。</li>
 <li><code>\\</code>除法称为‘地板除’，无论是否除得尽，都得到整数。</li>
-<li><code>%</code>是余数运算，可以得到两个整数相除的余数。</li>
+<li><code>%</code>是余数运算，可以得到两个整数相除的余数。<a id="more"></a></li>
 </ul>
 </li>
 <li>占位符：<ul>
@@ -388,7 +388,25 @@
     pass
 </code></pre></li>
 <li><p>程序异常处理：当程序出现错误，python 会自动引发异常，也可以通过 raise 显示地引发异常。一旦执行了 raise 语句，raise 后面的语句将不能执行。</p>
-<a id="more"></a>
+</li>
+<li><p>isinstance() 函数来判断一个对象是否是一个已知的类型。</p>
+<pre><code>isinstance(object, classinfo)
+isinstance (a,str)
+isinstance (a,(str,int,list)) # 是元组中的一个返回 True
+</code></pre></li>
+<li><p>函数参数：</p>
+<ul>
+<li><p>可变参数</p>
+<pre><code>def calc(*numbers):
+sum = 0
+for n in numbers:
+    sum = sum + n * n
+return sum
+
+calc(1,2)
+calc(1,2，5,0,3) //可以传入任意个参数
+</code></pre></li>
+</ul>
 </li>
 </ol>
 
