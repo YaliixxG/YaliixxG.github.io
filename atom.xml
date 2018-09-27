@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yaliixxg.github.io/"/>
-  <updated>2018-09-21T09:26:40.129Z</updated>
+  <updated>2018-09-27T06:29:34.215Z</updated>
   <id>http://yaliixxg.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yaliixxg.github.io/2018/09/20/aboutPy/"/>
     <id>http://yaliixxg.github.io/2018/09/20/aboutPy/</id>
     <published>2018-09-20T02:37:49.000Z</published>
-    <updated>2018-09-21T09:26:40.129Z</updated>
+    <updated>2018-09-27T06:29:34.215Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>Python 允许用<code>r&#39;&#39;</code>表示’’内部的字符串默认不转义。</li><li>Python 允许用<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>的格式表示多行内容。</li><li><code>and</code>代表“并且”，<code>or</code>代表“或”，<code>not</code>代表“非”</li><li>空值：用<code>None</code>表示。<code>None</code>不能理解为<code>0</code>，因为<code>0</code>是有意义的，而<code>None</code>是一个特殊的空值。</li><li>除法：<ul><li><code>/</code>除法计算结果是浮点数，即使两个整数恰好整除，结果也是浮点数。</li><li><code>\\</code>除法称为‘地板除’，无论是否除得尽，都得到整数。</li><li><code>%</code>是余数运算，可以得到两个整数相除的余数。<a id="more"></a></li></ul></li><li>占位符：<ul><li><code>%d</code> 整数</li><li><code>%f</code> 浮点数</li><li><code>%s</code> 字符串</li><li><code>%x</code> 十六进制整数</li></ul></li><li><code>input()</code>返回的数据类型是<code>str</code>,<code>str</code>不能直接和整数比较，必须先把<code>str</code>转换成整数，<code>int()</code>可以将其转换成整数类型。</li><li><p>如果想定义一个什么事也不做的空函数，可以用 <code>pass</code> 语句,<code>pass</code> 语句什么都不做，那有什么用？实际上 <code>pass</code> 可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个 <code>pass</code>，让代码能运行起来。</p><pre><code>def nop():    pass</code></pre></li><li><p>程序异常处理：当程序出现错误，python 会自动引发异常，也可以通过 raise 显示地引发异常。一旦执行了 raise 语句，raise 后面的语句将不能执行。</p></li><li><p>isinstance() 函数来判断一个对象是否是一个已知的类型。</p><pre><code>isinstance(object, classinfo)isinstance (a,str)isinstance (a,(str,int,list)) # 是元组中的一个返回 True</code></pre></li><li><p>函数参数：</p><ul><li><p>可变参数</p><pre><code>def calc(*numbers):sum = 0for n in numbers:    sum = sum + n * nreturn sumcalc(1,2)calc(1,2，5,0,3) //可以传入任意个参数</code></pre></li></ul></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li>Python 允许用<code>r&#39;&#39;</code>表示’’内部的字符串默认不转义。</li><li>Python 允许用<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>的格式表示多行内容。</li><li><code>and</code>代表“并且”，<code>or</code>代表“或”，<code>not</code>代表“非”</li><li>空值：用<code>None</code>表示。<code>None</code>不能理解为<code>0</code>，因为<code>0</code>是有意义的，而<code>None</code>是一个特殊的空值。</li><li>除法：<ul><li><code>/</code>除法计算结果是浮点数，即使两个整数恰好整除，结果也是浮点数。</li><li><code>\\</code>除法称为‘地板除’，无论是否除得尽，都得到整数。</li><li><code>%</code>是余数运算，可以得到两个整数相除的余数。<a id="more"></a></li></ul></li><li>占位符：<ul><li><code>%d</code> 整数</li><li><code>%f</code> 浮点数</li><li><code>%s</code> 字符串</li><li><code>%x</code> 十六进制整数</li></ul></li><li><code>input()</code>返回的数据类型是<code>str</code>,<code>str</code>不能直接和整数比较，必须先把<code>str</code>转换成整数，<code>int()</code>可以将其转换成整数类型。</li><li><p>如果想定义一个什么事也不做的空函数，可以用 <code>pass</code> 语句,<code>pass</code> 语句什么都不做，那有什么用？实际上 <code>pass</code> 可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个 <code>pass</code>，让代码能运行起来。</p><pre><code>def nop():    pass</code></pre></li><li><p>程序异常处理：当程序出现错误，python 会自动引发异常，也可以通过 raise 显示地引发异常。一旦执行了 raise 语句，raise 后面的语句将不能执行。</p></li><li><p>isinstance() 函数来判断一个对象是否是一个已知的类型。</p><pre><code>isinstance(object, classinfo)isinstance (a,str)isinstance (a,(str,int,list)) # 是元组中的一个返回 True</code></pre></li><li><p>函数参数：</p><ul><li><p>可变参数</p><pre><code>def calc(*numbers):sum = 0for n in numbers:    sum = sum + n * nreturn sumcalc(1,2)calc(1,2，5,0,3) //可以传入任意个参数</code></pre></li></ul></li><li><p>zeros(shape,dtype = float, order =’C’) 函数：</p><ul><li>返回来一个给定形状和类型的用0填充的数组</li><li>参数：<ul><li>shape：形状</li><li>dtype：数据类型，可选参数，默认numpy.float64</li><li>order:可选参数，c代表与c语言类似，行优先；F代表列优先</li></ul></li></ul></li></ol>]]></content>
     
     <summary type="html">
     
