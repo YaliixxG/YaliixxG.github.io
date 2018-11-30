@@ -49,20 +49,6 @@
   </entry>
   
   <entry>
-    <title>WX</title>
-    <link href="http://yaliixxg.github.io/2018/11/30/WX/"/>
-    <id>http://yaliixxg.github.io/2018/11/30/WX/</id>
-    <published>2018-11-30T07:30:40.000Z</published>
-    <updated>2018-11-30T07:30:40.130Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Python 基础</title>
     <link href="http://yaliixxg.github.io/2018/09/20/aboutPy/"/>
     <id>http://yaliixxg.github.io/2018/09/20/aboutPy/</id>
@@ -521,6 +507,28 @@ npm start
     
     
       <category term="晴天 周杰伦" scheme="http://yaliixxg.github.io/tags/%E6%99%B4%E5%A4%A9-%E5%91%A8%E6%9D%B0%E4%BC%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>跨域请求传递cookie问题</title>
+    <link href="http://yaliixxg.github.io/2018/06/20/pageaxios/"/>
+    <id>http://yaliixxg.github.io/2018/06/20/pageaxios/</id>
+    <published>2018-06-20T08:10:34.000Z</published>
+    <updated>2018-06-20T08:15:04.021Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题描述<br>前后端完全分离的项目，前端使用Vue + axios，后端使用SpringMVC，容器为Tomcat。<br>使用CORS协议解决跨域访问数据限制的问题，但是发现客户端的Ajax请求不会自动带上服务器返回的Cookie：JSESSIONID。<br>导致每一个Ajax请求在服务端看来都是一个新的请求，都会在服务端创建新的Session（在响应消息头中设置Set-Cookie：JSESSIONID=xxx）。<br>而在项目中使用了Shiro框架，用户认证信息是放在Session中的，由于客户端不会把JSESSIONID返回给服务器端，因此使用Session策略存放数据的方式不可用。<br><a id="more"></a><br>原因分析<br>实际上，这是浏览器的同源策略导致的问题：不允许JS访问跨域的Cookie。<br>举个例子，现有网站A使用域名a.example.com，网站B使用域名b.example.com，如果希望在2个网站之间共享Cookie（浏览器可以将Cookie发送给服务器），那么在设置的Cookie的时候，必须设置domain为example.com。</p><p>解决方案<br>需要从2个方面解决：<br>1.服务器端使用CROS协议解决跨域访问数据问题时，需要设置响应消息头Access-Control-Allow-Credentials值为“true”。<br>同时，还需要设置响应消息头Access-Control-Allow-Origin值为指定单一域名（注：不能为通配符“*”）。</p><p>@Override<br>public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)<br>        throws IOException, ServletException {<br>    HttpServletRequest req = (HttpServletRequest)request;<br>    HttpServletResponse resp = (HttpServletResponse)response;</p><pre><code>String origin = req.getHeader(&quot;Origin&quot;);if(origin == null) {    origin = req.getHeader(&quot;Referer&quot;);}resp.setHeader(&quot;Access-Control-Allow-Origin&quot;, origin);            // 允许指定域访问跨域资源resp.setHeader(&quot;Access-Control-Allow-Credentials&quot;, &quot;true&quot;);       // 允许客户端携带跨域cookie，此时origin值不能为“*”，只能为指定单一域名if(RequestMethod.OPTIONS.toString().equals(req.getMethod())) {    String allowMethod = req.getHeader(&quot;Access-Control-Request-Method&quot;);    String allowHeaders = req.getHeader(&quot;Access-Control-Request-Headers&quot;);    resp.setHeader(&quot;Access-Control-Max-Age&quot;, &quot;86400&quot;);            // 浏览器缓存预检请求结果时间,单位:秒    resp.setHeader(&quot;Access-Control-Allow-Methods&quot;, allowMethod);  // 允许浏览器在预检请求成功之后发送的实际请求方法名    resp.setHeader(&quot;Access-Control-Allow-Headers&quot;, allowHeaders); // 允许浏览器发送的请求消息头    return;}chain.doFilter(request, response);</code></pre><p>}<br>2.客户端需要设置Ajax请求属性withCredentials=true，让Ajax请求都带上Cookie。</p><p>对于XMLHttpRequest的Ajax请求</p><p>var xhr = new XMLHttpRequest();<br>xhr.open(‘GET’, url);<br>xhr.withCredentials = true; // 携带跨域cookie<br>xhr.send();</p><p>对于JQuery的Ajax请求</p><p>$.ajax({<br>type: “GET”,<br>url: url,<br>xhrFields: {<br>    withCredentials: true // 携带跨域cookie<br>},<br>processData: false,<br>success: function(data) {<br>    console.log(data);<br>}<br>});</p><p>对于axios的Ajax请求</p><p>axios.defaults.withCredentials=true; // 让ajax携带cookie</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;问题描述&lt;br&gt;前后端完全分离的项目，前端使用Vue + axios，后端使用SpringMVC，容器为Tomcat。&lt;br&gt;使用CORS协议解决跨域访问数据限制的问题，但是发现客户端的Ajax请求不会自动带上服务器返回的Cookie：JSESSIONID。&lt;br&gt;导致每一个Ajax请求在服务端看来都是一个新的请求，都会在服务端创建新的Session（在响应消息头中设置Set-Cookie：JSESSIONID=xxx）。&lt;br&gt;而在项目中使用了Shiro框架，用户认证信息是放在Session中的，由于客户端不会把JSESSIONID返回给服务器端，因此使用Session策略存放数据的方式不可用。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="web" scheme="http://yaliixxg.github.io/categories/web/"/>
+    
+    
+      <category term="跨域" scheme="http://yaliixxg.github.io/tags/%E8%B7%A8%E5%9F%9F/"/>
     
   </entry>
   
