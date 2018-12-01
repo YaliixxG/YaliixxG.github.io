@@ -123,3 +123,5 @@ react-native 宽、高，字体大小屏幕适配工具：https://blog.csdn.net/
 TypeScript https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html
 
 2018 最新版 QQ 音乐 api 调用 https://blog.csdn.net/xiayiye5/article/details/79487560
+
+阿里巴巴矢量图形库 http://www.iconfont.cn/
